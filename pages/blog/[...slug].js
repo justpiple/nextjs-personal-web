@@ -15,7 +15,7 @@ function Home() {
         <React.Fragment>
             <Headers title="Example post - Blog" />
             <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-                <div class="flex h-screen flex-col justify-between">
+                <div className="flex h-screen flex-col justify-between">
                     <Navbar />
                     <div className="mx-auto max-w-3xl px-8 sm:px-6 xl:-mt-10 xl:max-w-5xl xl:px-0">
                         <article>
@@ -26,8 +26,8 @@ function Home() {
                                     </div>
                                     <dl className="space-y-1 pb-4">
                                         <div>
-                                            <dt class="sr-only">Published on</dt>
-                                            <dd class="text-base font-medium leading-6 text-gray-500">
+                                            <dt className="sr-only">Published on</dt>
+                                            <dd className="text-base font-medium leading-6 text-gray-500">
                                                 <time>Sunday, April 3, 2022</time>
                                             </dd>
                                         </div>
