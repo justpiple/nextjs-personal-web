@@ -13,7 +13,9 @@ class AboutMe extends React.Component {
     updateSpotify() {
         fetch(`/api/spotify-status?t=${Date.now()}`).then(x => x.arrayBuffer()).then(x => {
             this.setState({ spotifyStatus: `data:image/svg+xml;base64,${btoa(String.fromCharCode(...new Uint8Array(x)))}` })
-        }).catch()
+        }).catch(() => {
+            this.setState({ spotifyStatus: false })
+        })
     }
     componentDidMount() {
         this.updateSpotify()

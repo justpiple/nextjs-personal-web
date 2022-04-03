@@ -13,15 +13,17 @@ function Home() {
     }, []);
     return (
         <React.Fragment>
-            <Headers title="Blog - Benirabbany" />
-            <Navbar />
-            <section id="cr" className="w-screen mt-5 mb-auto mx-auto py-8 ">
-                <div className="container mx-auto mt-20 mb-20 my-10">
-                    <h1 className="text-3xl underline text-center font-bold">Coming soon!</h1>
+            <Headers title="Blog - benirabbany" />
+            <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+                <div className="flex h-screen flex-col justify-between">
+                    <Navbar />
+                    <div className="mx-auto max-w-3xl px-8 sm:px-6 xl:-mt-10 xl:max-w-5xl xl:px-0">
+                        <h1 className="text-3xl underline text-center font-bold">Coming soon!</h1>
+                    </div>
+                    <Footer />
                 </div>
-            </section>
-            <Footer />
-        </React.Fragment>
+            </div>
+        </React.Fragment >
     )
 }
 
