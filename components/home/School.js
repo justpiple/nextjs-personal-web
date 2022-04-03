@@ -1,8 +1,4 @@
 import React from "react";
-import Image from 'next/image';
-// import sdbss from "../../public/assets/img/sdbss.PNG"
-// import smpbss from "../../public/assets/img/smp-bss.jpg"
-// import smktelkom from "../../public/assets/img/smk-telkom.PNG"
 
 class School extends React.Component {
     render() {

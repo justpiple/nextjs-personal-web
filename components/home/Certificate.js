@@ -1,11 +1,8 @@
 import React from "react";
-import Image from 'next/image';
-import Swiper from 'swiper';
+import { Swiper } from 'swiper';
 import 'swiper/css/bundle';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-// import c1 from "../../assets/img/c-1.png"
-// import c2 from "../../assets/img/c-2.png"
 
 class Certificate extends React.Component {
     componentDidMount() {

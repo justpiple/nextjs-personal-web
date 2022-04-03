@@ -1,9 +1,5 @@
 import React, { useEffect } from "react";
-import Image from 'next/image';
 import Typewriter from '../../lib/typewriter';
-// import ppimg from "../../public/assets/img/ppimg.jpeg";
-// import spotifydefault from "../../public/assets/img/spotify-default.svg";
-// import wave from "../../public/assets/images/wave1.svg";
 
 
 class AboutMe extends React.Component {
@@ -20,6 +16,7 @@ class AboutMe extends React.Component {
         }).catch()
     }
     componentDidMount() {
+        this.updateSpotify()
         new Typewriter(document.getElementById("nama"), {
             strings: ['Ben', 'Beni'],
             autoStart: true,
@@ -29,7 +26,6 @@ class AboutMe extends React.Component {
         this.spotifyInt = setInterval(this.updateSpotify, 30000)
     }
     componentWillUnmount() {
-        this.updateSpotify()
         clearInterval(this.spotifyInt)
     }
     render() {
