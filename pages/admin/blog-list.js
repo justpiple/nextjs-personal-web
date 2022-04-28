@@ -1,12 +1,28 @@
 import React, { useEffect } from "react";
 import Headers from "../../components/Header";
+import Router from 'next/router';
 import Footer from "../../components/blog/Footer";
 import Navbar from "../../components/blog/NavBar";
 import { useRouter } from 'next/router';
 import ActiveLink from "../../components/ActiveLink";
 import clientPromise from "../../lib/mongodb";
+import { withSessionSsr } from "../../lib/getSession";
 
-function PreviewBlog({ pubDate, labels, title, link, textPreview }) {
+
+function PreviewBlog({ pubDate, labels, title, link, textPreview, id }) {
+    async function deletePost() {
+        const isYes = confirm("Are you sure to delete this post?")
+        if (!isYes) return
+        const delPost = await fetch('/api/deletePost', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id }),
+        }).then(x => x.json());
+        if (delPost.status == 200) {
+            alert(delPost.message)
+            Router.reload(window.location.pathname)
+        } else alert(`Failed to delete post\n\nerror: ${delPost.error}`)
+    }
     return (
         <li className="py-12">
             <article>
@@ -21,7 +37,7 @@ function PreviewBlog({ pubDate, labels, title, link, textPreview }) {
                         <div className="space-y-6">
                             <div>
                                 <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                                    <ActiveLink className="text-gray-900 duration-300 hover:text-cyan-500" href={"/blog/" + link}>
+                                    <ActiveLink className="text-gray-900 duration-300 hover:text-cyan-500" href={"/admin/editor/" + link}>
                                         {title}
                                     </ActiveLink>
                                 </h2>
@@ -35,18 +51,18 @@ function PreviewBlog({ pubDate, labels, title, link, textPreview }) {
                             </div>
                         </div>
                         <div className="text-base font-medium leading-6">
-                            <ActiveLink className="duration-300 hover:text-cyan-500" href={"/blog/" + link}>
-                                Read more →
-                            </ActiveLink>
+                            <span className="duration-300 hover:text-red-600 cursor-pointer" onClick={deletePost}>
+                                Delete post →
+                            </span>
                         </div>
                     </div>
                 </div>
             </article>
-        </li >
+        </li>
     )
 }
 
-function BlogHome({ data }) {
+function BlogAdmin({ data }) {
     const router = useRouter()
     const { slug } = router.query
 
@@ -65,7 +81,8 @@ function BlogHome({ data }) {
                                     labels={blog.labels}
                                     textPreview={blog.post.slice(0, 250) + "..."}
                                     link={blog.link}
-                                    key={blog._id} />
+                                    key={blog._id}
+                                    id={blog._id} />
                             }) : null}
                         </ul>
                         <div className="flex justify-end text-base font-medium leading-6"><ActiveLink className="text-cyan-300 duration-300 hover:text-teal-500" href="/blog">All Posts →</ActiveLink></div>
@@ -76,13 +93,26 @@ function BlogHome({ data }) {
         </React.Fragment >
     )
 }
-export async function getServerSideProps({ res, query }) {
-    const db = await clientPromise
-    var getDB = await db.db('personal-blog').collection('blog-post').find({}).toArray()
-    return {
-        props: {
-            data: JSON.parse(JSON.stringify(getDB.reverse()))
+export const getServerSideProps = withSessionSsr(
+    async function getServerSideProps({ res, query, req }) {
+        if (!req.session?.state?.isLoggedIn) {
+            res?.writeHead(302, {
+                Location: '/admin/login',
+            });
+            res?.end();
+            return {
+                props: {}
+            }
+        } else {
+            const db = await clientPromise
+            var getDB = await db.db('personal-blog').collection('blog-post').find({}).toArray()
+            return {
+                props: {
+                    data: JSON.parse(JSON.stringify(getDB.reverse().slice(0, 4)))
+                }
+            }
         }
     }
-}
-export default BlogHome
+);
+
+export default BlogAdmin

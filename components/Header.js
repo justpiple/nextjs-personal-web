@@ -18,7 +18,7 @@ function Header({ title }) {
             <meta name="robots" content="index, nofollow" />
             <meta name="og:description" content="haiii, halooo" />
             <meta property="og:title" content="benirabbany" />
-            <meta property="og:image" content="https://masben.studio/images/BG!.jpeg" />
+            <meta property="og:image" content="https://masben.studio/assets/images/BG!.jpeg" />
             <title>{title || "benirabbany"}</title>
             <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png" />
             <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png" />

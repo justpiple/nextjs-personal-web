@@ -9,7 +9,6 @@ function NavBar() {
                 <div data-aos="text-center">
                     <nav className="fixed mt-8 h-full text-white">
                         <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/blog">Home</AcLink></div>
-                        <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/blog">Blog</AcLink></div>
                         <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/blog/tags">Tags</AcLink></div>
                         <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/">About</AcLink></div>
                     </nav>
@@ -33,15 +32,15 @@ function NavBar() {
                     <div className="hidden md:block">
                         <div data-aos="fade-down">
                             <AcLink href="/blog"
-                                className="p-1 font-medium text-gray-900 sm:p-4">
+                                className="p-1 font-medium text-gray-900 sm:p-4 duration-300 hover:text-cyan-600">
                                 Home
                             </AcLink>
                             <AcLink href="/blog/tags"
-                                className="p-1 font-medium text-gray-900 sm:p-4">
+                                className="p-1 font-medium text-gray-900 sm:p-4 duration-300 hover:text-cyan-600">
                                 Tags
                             </AcLink>
                             <AcLink href="/"
-                                className="p-1 font-medium text-gray-900 sm:p-4">
+                                className="p-1 font-medium text-gray-900 sm:p-4 duration-300 hover:text-cyan-600">
                                 About
                             </AcLink>
                         </div>
