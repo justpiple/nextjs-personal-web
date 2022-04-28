@@ -32,7 +32,7 @@ class AboutMe extends React.Component {
     }
     render() {
         return (
-            <section id="about" className="w-screen mx-auto gradient">
+            <section id="about" className="w-screen mx-auto gradient font-joefiSans">
                 <div className="px-16 py-8 text-center text-white">
                     <div className="w-full">
                         <div data-aos="flip-up" className="px-4 py-4">

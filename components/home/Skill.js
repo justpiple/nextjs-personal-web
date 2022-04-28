@@ -3,7 +3,7 @@ import React from "react";
 class Skill extends React.Component {
     render() {
         return (
-            <section id="skill" className="w-screen mx-auto py-8 bg-white">
+            <section id="skill" className="w-screen mx-auto py-8 bg-white font-joefiSans">
                 <div className="container mx-auto mt-50">
                     <div data-aos="zoom-in" data-aos-duration="2500" className="text-center mb-8">
                         <h1 className="w-full my-2 text-5xl font-bold text-gray-700">Skill</h1>

@@ -5,6 +5,7 @@ import Navbar from "../../components/blog/NavBar";
 import ActiveLink from "../../components/ActiveLink";
 import { useRouter } from 'next/router';
 import clientPromise from "../../lib/mongodb";
+import { unreset } from "../../styles/unreset.module.css";
 
 function copyLink(e) {
     navigator.clipboard.writeText(e.target.value).then(() => alert("Link copied!"))
@@ -33,7 +34,7 @@ function BlogPost({ data }) {
                                         <span className="text-gray-500">{data.pubDate}</span>
                                     </dl>
                                 </header>
-                                <article dangerouslySetInnerHTML={{ __html: data.post }}>
+                                <article className={unreset + " font-sans"} dangerouslySetInnerHTML={{ __html: data.post }}>
                                 </article>
                             </div>
                             <div className="md:w-2/5 w-full md:ml-10 mt-16">
@@ -83,11 +84,11 @@ export async function getServerSideProps({ res, query }) {
         res?.writeHead(302, {
             Location: '/404',
         });
-        return res?.end();
+        res?.end();
     }
     return {
         props: {
-            data: JSON.parse(JSON.stringify(getDB))
+            data: getDB ? JSON.parse(JSON.stringify(getDB)) : {}
         }
     }
 }

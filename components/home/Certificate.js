@@ -17,7 +17,7 @@ class Certificate extends React.Component {
     }
     render() {
         return (
-            <section id="cr" className="w-screen mt-5 mb-5 mx-auto py-8 bg-gray-200">
+            <section id="cr" className="w-screen mt-5 mb-5 mx-auto py-8 bg-gray-200 font-joefiSans">
                 <div className="container mx-auto mt-20 mb-20 my-10">
                     <div data-aos="zoom-in" data-aos-duration="2500" className="text-center mb-8">
                         <h1 className="w-full my-2 text-5xl font-bold text-gray-700">Certificate</h1>
