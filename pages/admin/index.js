@@ -25,7 +25,7 @@ function BlogAdmin({ user }) {
                                     </a>
                                 </li>
                                 <li className="p-1">
-                                    <a href="/admin/blog-list"
+                                    <a href="/admin/deleted-post"
                                         className="duration-300 text-blue-500 hover:text-cyan-400">
                                         Deleted Post
                                     </a>

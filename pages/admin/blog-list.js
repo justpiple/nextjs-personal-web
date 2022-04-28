@@ -108,7 +108,7 @@ export const getServerSideProps = withSessionSsr(
             var getDB = await db.db('personal-blog').collection('blog-post').find({}).toArray()
             return {
                 props: {
-                    data: JSON.parse(JSON.stringify(getDB.reverse().slice(0, 4)))
+                    data: JSON.parse(JSON.stringify(getDB.reverse()))
                 }
             }
         }
