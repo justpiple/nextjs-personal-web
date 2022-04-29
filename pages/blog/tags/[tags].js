@@ -5,6 +5,7 @@ import Navbar from "../../../components/blog/NavBar";
 import { useRouter } from 'next/router';
 import ActiveLink from "../../../components/ActiveLink";
 import clientPromise from "../../../lib/mongodb";
+import { timeConverter } from "../../../lib/function";
 
 function PreviewBlog({ pubDate, labels, title, link, textPreview }) {
     return (
@@ -14,7 +15,7 @@ function PreviewBlog({ pubDate, labels, title, link, textPreview }) {
                     <dl>
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-base font-medium leading-6 text-gray-500">
-                            <time>{pubDate}</time>
+                            <time>{timeConverter(data.pubDate)}</time>
                         </dd>
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
@@ -84,7 +85,7 @@ export async function getServerSideProps({ res, query }) {
     var getDB = await db.db('personal-blog').collection('blog-post').find({ labels: query.tags }).toArray()
     return {
         props: {
-            data: JSON.parse(JSON.stringify(getDB))
+            data: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate)))
         }
     }
 }

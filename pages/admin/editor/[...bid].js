@@ -37,7 +37,10 @@ export default class BlogEdit extends React.Component {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataForm),
         }).then(x => x.json());
-        if (fetchData.status == 200) alert("Saved!")
+        if (fetchData.status == 200) {
+            if (fetchData.isNew) window.location.href = `/admin/editor/${e.target.link.value}`
+            alert("Saved!")
+        }
         else alert(`Failed to save change\n\nerror:\n${fetchData.error}`)
     }
     addLabel() {
@@ -185,7 +188,8 @@ export const getServerSideProps = withSessionSsr(
                 props: {}
             }
         } else {
-            const { bid } = query
+            var { bid } = query
+            bid = bid.join('/')
             let getDB
             if (bid == "new") {
                 getDB = {

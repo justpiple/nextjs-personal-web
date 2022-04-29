@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import ActiveLink from "../../components/ActiveLink";
 import clientPromise from "../../lib/mongodb";
 import { withSessionSsr } from "../../lib/getSession";
+import { timeConverter } from "../../lib/function";
 
 
 function PreviewBlog({ pubDate, labels, title, link, textPreview, id }) {
@@ -30,7 +31,7 @@ function PreviewBlog({ pubDate, labels, title, link, textPreview, id }) {
                     <dl>
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-base font-medium leading-6 text-gray-500">
-                            <time>{pubDate}</time>
+                            <time>{timeConverter(pubDate)}</time>
                         </dd>
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
@@ -90,7 +91,7 @@ function BlogAdmin({ data }) {
                     <Footer />
                 </div>
             </div>
-        </React.Fragment >
+        </React.Fragment>
     )
 }
 export const getServerSideProps = withSessionSsr(
@@ -108,7 +109,7 @@ export const getServerSideProps = withSessionSsr(
             var getDB = await db.db('personal-blog').collection('blog-post').find({}).toArray()
             return {
                 props: {
-                    data: JSON.parse(JSON.stringify(getDB.reverse()))
+                    data: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate)))
                 }
             }
         }

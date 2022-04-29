@@ -6,6 +6,7 @@ import ActiveLink from "../../components/ActiveLink";
 import { useRouter } from 'next/router';
 import clientPromise from "../../lib/mongodb";
 import { unreset } from "../../styles/unreset.module.css";
+import { timeConverter } from "../../lib/function"
 
 function copyLink(e) {
     navigator.clipboard.writeText(e.target.value).then(() => alert("Link copied!"))
@@ -31,7 +32,7 @@ function BlogPost({ data }) {
                                     <dl className="pb-4 pt-4">
                                         <span className="text-gray-500">Posted by <a className="transition-color duration-300 hover:text-cyan-300" href="https://instagram.com/kusindr_" target="_blank" rel="noopener noreferrer">ben</a></span>
                                         <span className="px-2">|</span>
-                                        <span className="text-gray-500">{data.pubDate}</span>
+                                        <span className="text-gray-500">{timeConverter(data.pubDate)}</span>
                                     </dl>
                                 </header>
                                 <article className={unreset + " font-inter"} dangerouslySetInnerHTML={{ __html: data.post }}>
@@ -76,7 +77,8 @@ function BlogPost({ data }) {
     )
 }
 export async function getServerSideProps({ res, query }) {
-    const { slug } = query
+    var { slug } = query
+    slug = slug.join('/')
     const db = await clientPromise
     var getDB = await db.db('personal-blog').collection('blog-post').findOne({ link: slug })
     if (!getDB) {

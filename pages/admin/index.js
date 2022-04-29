@@ -30,6 +30,12 @@ function BlogAdmin({ user }) {
                                         Deleted Post
                                     </a>
                                 </li>
+                                <li className="p-1">
+                                    <a href="/admin/editor/new"
+                                        className="duration-300 text-blue-500 hover:text-cyan-400">
+                                        Create new post
+                                    </a>
+                                </li>
                                 {user.isSuperAdmin ? <li className="p-1">
                                     <a href="/admin/user"
                                         className="duration-300 text-blue-500 hover:text-cyan-400">

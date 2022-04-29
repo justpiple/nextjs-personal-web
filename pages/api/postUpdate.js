@@ -14,9 +14,8 @@ async function uploadHandler(req, res) {
             const db = await clientPromise
             const postId = req.body._id
             delete req.body._id
-            if (!req.body.pubDate) req.body.pubDate = moment().tz("Asia/Jakarta").format("MMMM D, yyyy");
-            const insert = await db.db('personal-blog').collection('blog-post').updateOne({ _id: postId ? ObjectId(postId) : ObjectId(32) }, { $set: req.body }, { upsert: true })
-            return res.send({ status: 200, mongo: insert })
+            const insert = await db.db('personal-blog').collection('blog-post').updateOne({ _id: postId ? ObjectId(postId) : ObjectId(32) }, { $set: postId ? req.body : { ...req.body, authorName: req.session.name, clickCount: 0, pubDate: new Date().getTime() } }, { upsert: true })
+            return res.send({ status: 200, mongo: insert, isNew: !postId })
         } else {
             res.status(405).json({ status: 403, error: `Method '${req.method}' Not Allowed` });
         }
