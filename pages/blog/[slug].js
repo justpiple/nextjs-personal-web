@@ -34,7 +34,7 @@ function BlogPost({ data }) {
                                         <span className="text-gray-500">{data.pubDate}</span>
                                     </dl>
                                 </header>
-                                <article className={unreset + " font-sans"} dangerouslySetInnerHTML={{ __html: data.post }}>
+                                <article className={unreset + " font-inter"} dangerouslySetInnerHTML={{ __html: data.post }}>
                                 </article>
                             </div>
                             <div className="md:w-2/5 w-full md:ml-10 mt-16">

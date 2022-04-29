@@ -32,7 +32,7 @@ class AboutMe extends React.Component {
     }
     render() {
         return (
-            <section id="about" className="w-screen mx-auto gradient font-joefiSans">
+            <section id="about" className="w-screen mx-auto gradient font-josefinSans">
                 <div className="px-16 py-8 text-center text-white">
                     <div className="w-full">
                         <div data-aos="flip-up" className="px-4 py-4">
@@ -43,7 +43,7 @@ class AboutMe extends React.Component {
                     <span data-aos="zoom-in-down" className="text-3xl font-bold mb-2">
                         Halo, saya <a id="nama"></a>.
                     </span>
-                    <h3 data-aos="zoom-out-up" className="text-lg mb-2">
+                    <h3 data-aos="zoom-out-up" className="text-lg mb-2 font-josefinSans">
                         Saya adalah seorang pelajar kelas IX di SMP Brawijaya Smart School,
                         saya juga belajar tentang pemrograman untuk mengisi waktu luang.
                     </h3>
