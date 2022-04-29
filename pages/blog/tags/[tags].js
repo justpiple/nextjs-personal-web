@@ -15,7 +15,7 @@ function PreviewBlog({ pubDate, labels, title, link, textPreview }) {
                     <dl>
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-base font-medium leading-6 text-gray-500">
-                            <time>{timeConverter(data.pubDate)}</time>
+                            <time>{timeConverter(pubDate)}</time>
                         </dd>
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
