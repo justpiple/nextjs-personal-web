@@ -26,7 +26,7 @@ function BlogPost({ data }) {
                             <div className="pb-10 pt-10 md:w-5/6 md:mr-5 w-full">
                                 <header className="xl:pb-4">
                                     <div className="border-b border-gray-400">
-                                        <h1 className="pb-6 text-center text-4xl font-extrabold leading-9 tracking-tight sm:text-3xl sm:leading-10 md:text-3xl md:leading-14">Example post blog</h1>
+                                        <h1 className="pb-6 text-center text-4xl font-extrabold leading-9 tracking-tight sm:text-3xl sm:leading-10 md:text-3xl md:leading-14">{data.title}</h1>
                                     </div>
                                     <dl className="pb-4 pt-4">
                                         <span className="text-gray-500">Posted by <a className="transition-color duration-300 hover:text-cyan-300" href="https://instagram.com/kusindr_" target="_blank" rel="noopener noreferrer">ben</a></span>
