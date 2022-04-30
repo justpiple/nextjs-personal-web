@@ -5,8 +5,9 @@ import Navbar from "../../components/blog/NavBar";
 import ActiveLink from "../../components/ActiveLink";
 import { useRouter } from 'next/router';
 import clientPromise from "../../lib/mongodb";
-import { unreset } from "../../styles/unreset.module.css";
+import ck from "../../styles/unreset.module.css";
 import { timeConverter } from "../../lib/function"
+import Script from "next/script";
 
 function copyLink(e) {
     navigator.clipboard.writeText(e.target.value).then(() => alert("Link copied!"))
@@ -35,7 +36,7 @@ function BlogPost({ data, latestPost }) {
                                         <span className="text-gray-500">{timeConverter(data.pubDate)}</span>
                                     </dl>
                                 </header>
-                                <article className={unreset + " font-inter"} dangerouslySetInnerHTML={{ __html: data.post }}>
+                                <article className={ck["ck-content"] + " font-inter"} dangerouslySetInnerHTML={{ __html: data.post }}>
                                 </article>
                             </div>
                             <div className="md:w-2/5 w-full md:ml-10 mt-16">
@@ -69,6 +70,14 @@ function BlogPost({ data, latestPost }) {
                     <Footer />
                 </div>
             </div>
+            <Script src="https://cdn.iframe.ly/embed.js?api_key=70d193779c4aa866c8b4de" async />
+            <Script id="Iframe" async>{`
+                        setTimeout(() =>{
+                            document.querySelectorAll( 'oembed[url]' ).forEach( element => {
+                                iframely.load( element, element.attributes.url.value );
+                            });
+                        }, 2000)
+                    `}</Script>
         </React.Fragment >
     )
 }
