@@ -31,8 +31,6 @@ function Header({ title }) {
             <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png" />
             <link rel="icon" type="image/png" sizes="96x96" href="/icon/favicon-96x96.png" />
             <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link href="https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans&display=swap" rel="stylesheet" />
         </Head>
     );
 }
