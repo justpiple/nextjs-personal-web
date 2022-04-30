@@ -202,11 +202,12 @@ export const getServerSideProps = withSessionSsr(
                 const db = await clientPromise
                 getDB = await db.db('personal-blog').collection('blog-post').findOne({ link: bid })
                 if (!getDB) {
-                    //   await db.db('personal-blog').collection('blog-post').updateOne({ id: getDB.id }, { $inc: { clickCount: 1 } })
-                    res?.writeHead(302, {
-                        Location: '/404',
-                    });
-                    return res?.end();
+                    return {
+                        redirect: {
+                            destination: '/404',
+                            permanent: false,
+                        }
+                    }
                 }
             }
             return {

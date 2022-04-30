@@ -7,7 +7,6 @@ function Header({ title }) {
             <meta charSet="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scaleable=no" />
             <meta name="description" content="web portofolio" />
-            <meta name="keyword" content="ben portofolio" />
             <meta name="author" content="ben" />
             <meta name="theme-color" content="#8fd1c6" />
             <meta name="msapplication-TileColor" content="#8fd1c6" />
@@ -17,7 +16,6 @@ function Header({ title }) {
                 content="ben, kusindra, kusindra aji rabbany, benirabbany, beni, kusindra, aji, rabbany, aji rabbany" />
             <meta name="robots" content="index, nofollow" />
             <meta name="og:description" content="haiii, halooo" />
-            <meta property="og:title" content="benirabbany" />
             <meta property="og:image" content="https://masben.studio/assets/images/BG!.jpeg" />
             <title>{title || "benirabbany"}</title>
             <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png" />

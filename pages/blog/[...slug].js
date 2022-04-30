@@ -12,22 +12,22 @@ function copyLink(e) {
     navigator.clipboard.writeText(e.target.value).then(() => alert("Link copied!"))
 }
 
-function BlogPost({ data }) {
+function BlogPost({ data, latestPost }) {
     const router = useRouter()
     const { slug } = router.query
 
     return (
         <React.Fragment>
-            <Headers title="Example post - Blog" />
+            <Headers title={data.title + " - masben.studio"} />
             <div className="mx-auto max-w-4xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />
                     <div className="font-inter text-base mx-auto max-w-4xl pt-5 px-6 sm:px-6 xl:max-w-5xl xl:px-0">
                         <div className="flex md:flex-row flex-col justify-center mt-5">
-                            <div className="pb-10 pt-10 md:w-5/6 md:mr-5 w-full">
+                            <div className="md:min-w-[521px] pb-10 pt-10 md:w-5/6 md:mr-5 w-full">
                                 <header className="xl:pb-4">
                                     <div className="border-b border-gray-400">
-                                        <h1 className="pb-6 text-center text-4xl font-extrabold leading-9 tracking-tight sm:text-3xl sm:leading-10 md:text-3xl md:leading-14">{data.title}</h1>
+                                        <h1 className="pb-6 text-center text-2xl font-extrabold leading-9 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">{data.title}</h1>
                                     </div>
                                     <dl className="pb-4 pt-4">
                                         <span className="text-gray-500">Posted by <a className="transition-color duration-300 hover:text-cyan-300" href="https://instagram.com/kusindr_" target="_blank" rel="noopener noreferrer">ben</a></span>
@@ -55,15 +55,11 @@ function BlogPost({ data }) {
                                     <div>
                                         <h3 className="font-bold py-4">Latest Post</h3>
                                         <ul className="space-y-2 list-disc">
-                                            <li>
-                                                <a href="#" className="hover:text-blue-400 transition-colors duration-300">How to build website using tailwind css</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" className="hover:text-blue-400 transition-colors duration-300">How to build website using tailwind css</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" className="hover:text-blue-400 transition-colors duration-300">How to build website using tailwind css</a>
-                                            </li>
+                                            {latestPost ? latestPost.map(post => {
+                                                return <li key={post._id}>
+                                                    <ActiveLink href={`/blog/${post.link}`} className="hover:text-blue-400 transition-colors duration-300">{post.title}</ActiveLink >
+                                                </li>
+                                            }) : null}
                                         </ul>
                                     </div>
                                 </div>
@@ -80,17 +76,21 @@ export async function getServerSideProps({ res, query }) {
     var { slug } = query
     slug = slug.join('/')
     const db = await clientPromise
-    var getDB = await db.db('personal-blog').collection('blog-post').findOne({ link: slug })
-    if (!getDB) {
-        //   await db.db('personal-blog').collection('blog-post').updateOne({ id: getDB.id }, { $inc: { clickCount: 1 } })
-        res?.writeHead(302, {
-            Location: '/404',
-        });
-        res?.end();
+    var getDB = await db.db('personal-blog').collection('blog-post').find({}).toArray()
+    var findPost = getDB ? getDB.findIndex(x => x.link == slug) : -1
+    if (!(findPost + 1)) {
+        return {
+            redirect: {
+                destination: '/404',
+                permanent: false,
+            }
+        }
     }
+    // else await db.db('personal-blog').collection('blog-post').updateOne({ link: slug }, { $inc: { clickCount: 1 } })
     return {
         props: {
-            data: getDB ? JSON.parse(JSON.stringify(getDB)) : {}
+            data: findPost + 1 ? JSON.parse(JSON.stringify(getDB.splice(findPost, 1)[0])) : {},
+            latestPost: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate)))
         }
     }
 }

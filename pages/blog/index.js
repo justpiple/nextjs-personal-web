@@ -53,7 +53,7 @@ function BlogHome({ data }) {
 
     return (
         <React.Fragment>
-            <Headers title="Example post - Blog" />
+            <Headers title="masben.studio - Blog" />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />

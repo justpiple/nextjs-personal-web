@@ -24,11 +24,8 @@ function Link() {
         <div className="flex h-screen flex-col justify-between">
           <Navbar />
           <div className="font-inter mx-auto max-w-3xl pt-5 px-6 sm:px-6 xl:max-w-5xl xl:px-0">
-            <h1 className="border-r-2 border-black p-4 inline-block mr-5 font-extrabold">
-              404
-            </h1>
             <div className="text-right inline-block" >
-              <h2>This page could not be found.</h2>
+              <h2>Short Link masben.studio</h2>
             </div>
           </div>
           <Footer />
@@ -43,14 +40,18 @@ export async function getServerSideProps({ res, query }) {
   var getDB = await db.db('personal-blog').collection('link').findOne({ id: lid })
   if (getDB) {
     await db.db('personal-blog').collection('link').updateOne({ id: getDB.id }, { $inc: { clickCount: 1 } })
-    res?.writeHead(302, {
-      Location: getDB.url,
-    });
-    res?.end();
+    return {
+      redirect: {
+        destination: getDB.url,
+        permanent: false,
+      }
+    }
   }
-  else res.statusCode = 404
-  return {
-    props: {}
+  else return {
+    redirect: {
+      destination: '/404',
+      permanent: false,
+    }
   }
 }
 
