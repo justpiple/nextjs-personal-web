@@ -97,12 +97,11 @@ function BlogAdmin({ data }) {
 export const getServerSideProps = withSessionSsr(
     async function getServerSideProps({ res, req }) {
         if (!req.session?.state?.isLoggedIn) {
-            res?.writeHead(302, {
-                Location: '/admin/login',
-            });
-            res?.end();
             return {
-                props: {}
+                redirect: {
+                    destination: '/admin/login',
+                    permanent: false,
+                }
             }
         } else {
             const db = await clientPromise

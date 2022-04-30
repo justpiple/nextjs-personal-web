@@ -79,10 +79,12 @@ function BlogAdmin({ data, req }) {
 export const getServerSideProps = withSessionSsr(
     async function getServerSideProps({ req, res }) {
         if (req.session?.state?.isLoggedIn) {
-            res?.writeHead(302, {
-                Location: '/admin',
-            });
-            res?.end();
+            return {
+                redirect: {
+                    destination: '/admin',
+                    permanent: false,
+                }
+            }
         }
         return {
             props: {},

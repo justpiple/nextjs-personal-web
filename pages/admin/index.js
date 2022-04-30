@@ -36,6 +36,12 @@ function BlogAdmin({ user }) {
                                         Create new post
                                     </a>
                                 </li>
+                                <li className="p-1">
+                                    <a href="/admin/short-link"
+                                        className="duration-300 text-blue-500 hover:text-cyan-400">
+                                        Short Link
+                                    </a>
+                                </li>
                                 {user.isSuperAdmin ? <li className="p-1">
                                     <a href="/admin/user"
                                         className="duration-300 text-blue-500 hover:text-cyan-400">
@@ -61,10 +67,12 @@ function BlogAdmin({ user }) {
 export const getServerSideProps = withSessionSsr(
     async function getServerSideProps({ req, res }) {
         if (!req.session?.state?.isLoggedIn) {
-            res?.writeHead(302, {
-                Location: '/admin/login',
-            });
-            res?.end();
+            return {
+                redirect: {
+                    destination: '/admin/login',
+                    permanent: false,
+                }
+            }
         }
         return {
             props: {
