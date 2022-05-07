@@ -19,7 +19,7 @@ function BlogPost({ data, latestPost }) {
 
     return (
         <React.Fragment>
-            <Headers title={data.title + " - masben.studio"} />
+            <Headers title={data.title + " - masben.studio"} description="masben blog" />
             <div className="mx-auto max-w-4xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />

@@ -1,7 +1,7 @@
 import React from "react";
 import Head from 'next/head';
 
-function Header({ title }) {
+function Header({ title, description }) {
     return (
         <Head>
             <meta charSet="UTF-8" />
@@ -11,16 +11,43 @@ function Header({ title }) {
             <meta name="theme-color" content="#8fd1c6" />
             <meta name="msapplication-TileColor" content="#8fd1c6" />
             <meta name="msapplication-TileImage" content="/icon/ms-icon-144x144.png" />
-            <meta name="description" content="haiii, halooo" />
+            <meta name="description" content={description || "haiii, halooo"} />
             <meta name="keywords"
                 content="ben, kusindra, kusindra aji rabbany, benirabbany, beni, kusindra, aji, rabbany, aji rabbany" />
             <meta name="robots" content="index, nofollow" />
-            <meta name="og:description" content="haiii, halooo" />
+            <meta name="og:description" content={description || "haiii, halooo"} />
             <meta property="og:image" content="https://masben.studio/assets/images/BG!.jpeg" />
             <meta property="og:site_name" content="masben.studio - personal website" />
             <meta property="og:title" content={title || "benirabbany"} />
-            <meta name="twitter:label1" content="Written by" />
-            <meta name="twitter:data1" content="Ben." />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BlogPosting",
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": "https://masben.studio/"
+                        },
+                        "headline": "",
+                        "image": "",
+                        "author": {
+                            "@type": "Person",
+                            "name": "Ben",
+                            "url": "https://instagram.com/kusindr_"
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Ben",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://masben.studio/icon/apple-icon-144x144.png"
+                            }
+                        },
+                        "datePublished": ""
+                    })
+                }}
+            />
             <title>{title || "benirabbany"}</title>
             <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png" />
             <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png" />
