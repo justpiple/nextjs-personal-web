@@ -159,10 +159,10 @@ export const getServerSideProps = withSessionSsr(
             }
         }
         const db = await clientPromise
-        var getDB = await db.db('personal-blog').collection('link').find({}).toArray().filter(x => !x.isBlog)
+        var getDB = await db.db('personal-blog').collection('link').find({}).toArray()
         return {
             props: {
-                links: JSON.parse(JSON.stringify(getDB.reverse()))
+                links: JSON.parse(JSON.stringify(getDB.reverse())).filter(x => !x.isBlog)
             },
         };
 
