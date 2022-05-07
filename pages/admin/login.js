@@ -37,7 +37,7 @@ function BlogAdmin({ data, req }) {
     }
     return (
         <React.Fragment>
-            <Headers title="Example post - Blog" />
+            <Headers title="Admin Login" />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />

@@ -43,7 +43,7 @@ function BlogPost({ data, latestPost }) {
                                 <div className="sticky top-6">
                                     <div>
                                         <h3 className="font-bold mb-2">Share this blog</h3>
-                                        <input onClick={copyLink} placeholder="Posts Link" className="px-2 py-1 cursor-pointer w-full ring-1 ring-slate-900/10 bg-gray-100 border-2 border-gray-300 text-center rounded-md" value={"https://masben.studio" + router.asPath} readOnly />
+                                        <input onClick={copyLink} placeholder="Posts Link" className="px-2 py-1 cursor-pointer w-full ring-1 ring-slate-900/10 bg-gray-100 border-2 border-gray-300 text-center rounded-md" value={"https://masben.studio/link/" + data.short} readOnly />
                                     </div>
                                     <div className="py-4">
                                         <h3 className="font-bold mb-2">Tags</h3>
@@ -95,7 +95,7 @@ export async function getServerSideProps({ res, query }) {
             }
         }
     }
-    // else await db.db('personal-blog').collection('blog-post').updateOne({ link: slug }, { $inc: { clickCount: 1 } })
+    else await db.db('personal-blog').collection('blog-post').updateOne({ link: slug }, { $inc: { clickCount: 1 } })
     return {
         props: {
             data: findPost + 1 ? JSON.parse(JSON.stringify(getDB.splice(findPost, 1)[0])) : {},

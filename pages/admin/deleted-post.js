@@ -64,12 +64,10 @@ function PreviewBlog({ pubDate, labels, title, link, textPreview, id }) {
 }
 
 function BlogAdmin({ data }) {
-    const router = useRouter()
-    const { slug } = router.query
 
     return (
         <React.Fragment>
-            <Headers title="Example post - Blog" />
+            <Headers title="Deleted post - Blog" />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />

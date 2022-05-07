@@ -30,7 +30,8 @@ export default class BlogEdit extends React.Component {
             title: e.target.title.value,
             link: e.target.link.value,
             post: Editor.getData(),
-            labels: this.state.data.labels
+            labels: this.state.data.labels,
+            short: e.target.short.value
         }
         const fetchData = await fetch('/api/postUpdate', {
             method: 'POST',
@@ -89,7 +90,7 @@ export default class BlogEdit extends React.Component {
                         <form action="#" onSubmit={this.saveChange} >
                             <div className="md:flex md:items-center mb-2">
                                 <div className="mr-10">
-                                    <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-2" htmlFor="inline-full-name">
+                                    <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-2">
                                         Title
                                     </label>
                                 </div>
@@ -99,7 +100,7 @@ export default class BlogEdit extends React.Component {
                             </div>
                             <div className="md:flex md:items-center mb-4">
                                 <div className="mr-10">
-                                    <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-2" htmlFor="inline-full-name">
+                                    <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-2">
                                         Link
                                     </label>
                                 </div>
@@ -107,9 +108,19 @@ export default class BlogEdit extends React.Component {
                                     <input autoComplete="off" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" type="text" name="link" defaultValue={this.state.data.link} required />
                                 </div>
                             </div>
+                            <div className="md:flex md:items-center mb-2">
+                                <div className="mr-10">
+                                    <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-2">
+                                        Short
+                                    </label>
+                                </div>
+                                <div className="md:w-2/3">
+                                    <input autoComplete="off" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" type="text" name="short" defaultValue={this.state.data.short} />
+                                </div>
+                            </div>
                             <div className="md:flex md:items-center mb-4">
                                 <div className="mr-10">
-                                    <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0" htmlFor="inline-full-name">
+                                    <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0">
                                         Add label
                                     </label>
                                 </div>
@@ -124,7 +135,7 @@ export default class BlogEdit extends React.Component {
                             </div>
                             <div className="md:flex md:items-center mb-4">
                                 <div className="mr-10">
-                                    <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-2" htmlFor="inline-full-name">
+                                    <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-2">
                                         Labels
                                     </label>
                                 </div>

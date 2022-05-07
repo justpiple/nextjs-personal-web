@@ -22,7 +22,7 @@ function BlogAdmin({ links }) {
     const router = useRouter()
     return (
         <React.Fragment>
-            <Headers title="Example post - Blog" />
+            <Headers title="Link shortner - masben.studio" />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />
@@ -159,7 +159,7 @@ export const getServerSideProps = withSessionSsr(
             }
         }
         const db = await clientPromise
-        var getDB = await db.db('personal-blog').collection('link').find({}).toArray()
+        var getDB = await db.db('personal-blog').collection('link').find({}).toArray().filter(x => !x.isBlog)
         return {
             props: {
                 links: JSON.parse(JSON.stringify(getDB.reverse()))

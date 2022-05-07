@@ -9,7 +9,7 @@ import AcLink from "../../components/ActiveLink";
 function BlogAdmin({ user }) {
     return (
         <React.Fragment>
-            <Headers title="Example post - Blog" />
+            <Headers title="Admin panel" />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />

@@ -1,8 +1,17 @@
 import { withIronSessionApiRoute } from 'iron-session/next';
 import sessionOpt from '../../lib/sessionOpt';
-import { ObjectId } from 'mongodb';
 import clientPromise from "../../lib/mongodb";
-import moment from "moment-timezone";
+
+function randomString(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+            charactersLength));
+    }
+    return result;
+}
 
 
 export default withIronSessionApiRoute(uploadHandler, sessionOpt)
@@ -12,9 +21,10 @@ async function uploadHandler(req, res) {
     try {
         const db = await clientPromise
         if (req.method === 'POST' || req.method === "PUT") {
-            if (!req.body.newId || !req.body.url) return res.status(400).json({ status: 400, error: "Bad request" })
+            if (!req.body.url) return res.status(400).json({ status: 400, error: "Bad request" })
             const tambahan = req.body.id ? {} : { clickCount: 0 }
-            await db.db('personal-blog').collection('link').updateOne({ id: req.body.id || req.body.newId }, { $set: { url: req.body.url, id: req.body.newId, ...tambahan } }, { upsert: true })
+            var newId = req.body.newId || randomString(7)
+            await db.db('personal-blog').collection('link').updateOne({ id: req.body.id || newId }, { $set: { url: req.body.url, id: newId, ...tambahan } }, { upsert: true })
             return res.send({ status: 200, message: "OK." })
         } else if (req.method == "DELETE") {
             if (!req.body.id) return res.status(400).json({ status: 400, error: "Bad request" })

@@ -42,7 +42,7 @@ export async function getServerSideProps({ res, query }) {
     await db.db('personal-blog').collection('link').updateOne({ id: getDB.id }, { $inc: { clickCount: 1 } })
     return {
       redirect: {
-        destination: getDB.url,
+        destination: getDB.isBlog ? `/blog/${getDB.url}` : getDB.url,
         permanent: false,
       }
     }
