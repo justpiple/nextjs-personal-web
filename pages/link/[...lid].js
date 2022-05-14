@@ -35,7 +35,8 @@ function Link() {
   )
 }
 export async function getServerSideProps({ res, query }) {
-  const { lid } = query
+  var { lid } = query
+  lid = lid.join('/')
   const db = await clientPromise
   var getDB = await db.db('personal-blog').collection('link').findOne({ id: lid })
   if (getDB) {
