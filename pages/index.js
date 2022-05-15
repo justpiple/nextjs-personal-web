@@ -6,7 +6,8 @@ import AboutMe from "../components/home/AboutMe";
 import Skill from "../components/home/Skill";
 import Certificate from "../components/home/Certificate";
 import School from "../components/home/School";
-import AOS from "aos";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Home() {
   useEffect(() => {
