@@ -28,7 +28,7 @@ export default class BlogEdit extends React.Component {
         var dataForm = {
             ...this.state.data,
             title: e.target.title.value,
-            link: e.target.link.value,
+            link: e.target.l.value,
             post: Editor.getData(),
             labels: this.state.data.labels,
             short: e.target.short.value
@@ -39,7 +39,7 @@ export default class BlogEdit extends React.Component {
             body: JSON.stringify(dataForm),
         }).then(x => x.json());
         if (fetchData.status == 200) {
-            if (fetchData.isNew) window.location.href = `/admin/editor/${e.target.link.value}`
+            if (fetchData.isNew) window.location.href = `/admin/editor/${e.target.l.value}`
             alert("Saved!")
         }
         else alert(`Failed to save change\n\nerror:\n${fetchData.error}`)
