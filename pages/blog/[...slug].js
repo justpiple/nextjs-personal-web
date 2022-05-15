@@ -19,7 +19,7 @@ function BlogPost({ data, latestPost }) {
 
     return (
         <React.Fragment>
-            <Headers title={data.title + " - masben.studio"} description="masben blog" />
+            <Headers title={data.title + " - itsben.space"} description="masben blog" />
             <div className="mx-auto max-w-4xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />
@@ -43,7 +43,7 @@ function BlogPost({ data, latestPost }) {
                                 <div className="sticky top-6">
                                     <div>
                                         <h3 className="font-bold mb-2">Share this blog</h3>
-                                        <input onClick={copyLink} placeholder="Posts Link" className="px-2 py-1 cursor-pointer w-full ring-1 ring-slate-900/10 bg-gray-100 border-2 border-gray-300 text-center rounded-md" value={"https://masben.studio/link/" + data.short} readOnly />
+                                        <input onClick={copyLink} placeholder="Posts Link" className="px-2 py-1 cursor-pointer w-full ring-1 ring-slate-900/10 bg-gray-100 border-2 border-gray-300 text-center rounded-md" value={"https://itsben.space/link/" + data.short} readOnly />
                                     </div>
                                     <div className="py-4">
                                         <h3 className="font-bold mb-2">Tags</h3>

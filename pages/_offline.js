@@ -7,7 +7,7 @@ import Navbar from "../components/blog/NavBar";
 export default function page404() {
     return (
         <React.Fragment>
-            <Headers title="Offline... - masben.studio" />
+            <Headers title="Offline... - itsben.space" />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />

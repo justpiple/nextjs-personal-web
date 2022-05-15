@@ -25,7 +25,7 @@ function Link() {
           <Navbar />
           <div className="font-inter mx-auto max-w-3xl pt-5 px-6 sm:px-6 xl:max-w-5xl xl:px-0">
             <div className="text-right inline-block" >
-              <h2>Short Link masben.studio</h2>
+              <h2>Short Link itsben.space</h2>
             </div>
           </div>
           <Footer />

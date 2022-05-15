@@ -64,7 +64,7 @@ function BlogAdmin({ data, req }) {
                             </div>
                         </form>
                         <p className="text-center text-gray-500 text-sm">
-                            masben.studio
+                            itsben.space
                         </p>
                     </div>
                     <Footer />

@@ -16,8 +16,8 @@ function Header({ title, description }) {
                 content="ben, kusindra, kusindra aji rabbany, benirabbany, beni, kusindra, aji, rabbany, aji rabbany" />
             <meta name="robots" content="index, nofollow" />
             <meta name="og:description" content={description || "haiii, halooo"} />
-            <meta property="og:image" content="https://masben.studio/assets/images/BG!.jpeg" />
-            <meta property="og:site_name" content="masben.studio - personal website" />
+            <meta property="og:image" content="https://itsben.space/assets/images/BG!.jpeg" />
+            <meta property="og:site_name" content="itsben.space - personal website" />
             <meta property="og:title" content={title || "benirabbany"} />
             <script
                 type="application/ld+json"
@@ -27,7 +27,7 @@ function Header({ title, description }) {
                         "@type": "BlogPosting",
                         "mainEntityOfPage": {
                             "@type": "WebPage",
-                            "@id": "https://masben.studio/"
+                            "@id": "https://itsben.space/"
                         },
                         "headline": "",
                         "image": "",
@@ -41,7 +41,7 @@ function Header({ title, description }) {
                             "name": "Ben",
                             "logo": {
                                 "@type": "ImageObject",
-                                "url": "https://masben.studio/icon/apple-icon-144x144.png"
+                                "url": "https://itsben.space/icon/apple-icon-144x144.png"
                             }
                         },
                         "datePublished": ""

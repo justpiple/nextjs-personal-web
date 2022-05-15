@@ -7,7 +7,7 @@ class Footer extends React.Component {
             <section className="w-screen mx-auto gradient-bottom">
                 <img src="/assets/images/footerWave.svg" alt="svgFooter" />
                 <div className="text-center mt-4">
-                    Made with ❤️ by <a target="_blank" rel="noreferrer" href="https://my.masben.studio" className="font-bold shadow-md rounded-tr-lg rounded-bl-lg">ben</a>.
+                    Made with ❤️ by <a target="_blank" rel="noreferrer" href="https://my.itsben.space" className="font-bold shadow-md rounded-tr-lg rounded-bl-lg">ben</a>.
                 </div>
             </section>
         )

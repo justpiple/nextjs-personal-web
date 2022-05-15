@@ -13,7 +13,7 @@ function BlogHome({ data }) {
 
     return (
         <React.Fragment>
-            <Headers title="Tags - masben.studio" />
+            <Headers title="Tags - itsben.space" />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />

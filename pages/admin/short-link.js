@@ -22,7 +22,7 @@ function BlogAdmin({ links }) {
     const router = useRouter()
     return (
         <React.Fragment>
-            <Headers title="Link shortner - masben.studio" />
+            <Headers title="Link shortner - itsben.space" />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />
@@ -61,8 +61,8 @@ function BlogAdmin({ links }) {
                                                         <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>{link.url}</a>
                                                     </td>
                                                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap max-w-[240px] overflow-clip">
-                                                        <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>https://link.masben.studio/{link.id}</a>
-                                                        <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>https://masben.studio/link/{link.id}</a>
+                                                        <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>https://link.itsben.space/{link.id}</a>
+                                                        <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>https://itsben.space/link/{link.id}</a>
                                                     </td>
                                                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                         {link.clickCount}
