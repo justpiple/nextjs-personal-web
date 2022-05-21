@@ -6,7 +6,19 @@ import { useRouter } from 'next/router';
 import ActiveLink from "../../../components/ActiveLink";
 import clientPromise from "../../../lib/mongodb";
 import { timeConverter } from "../../../lib/function";
-
+function toText(html) {
+    html = html.replace(/<style([\s\S]*?)<\/style>/gi, '');
+    html = html.replace(/<script([\s\S]*?)<\/script>/gi, '');
+    html = html.replace(/<\/div>/ig, '\n');
+    html = html.replace(/<\/li>/ig, '\n');
+    html = html.replace(/<li>/ig, '  *  ');
+    html = html.replace(/<\/ul>/ig, '\n');
+    html = html.replace(/<\/oembed>/ig, '');
+    html = html.replace(/<\/p>/ig, '\n');
+    html = html.replace(/<br\s*[\/]?>/gi, "\n");
+    html = html.replace(/<[^>]+>/ig, '');
+    return html
+}
 function PreviewBlog({ pubDate, labels, title, link, textPreview }) {
     return (
         <li className="py-12">
@@ -32,7 +44,7 @@ function PreviewBlog({ pubDate, labels, title, link, textPreview }) {
                                     }) : null}
                                 </div>
                             </div>
-                            <div className="text-ellipsis max-w-none text-gray-500" dangerouslySetInnerHTML={{ __html: textPreview }}>
+                            <div className="text-ellipsis max-w-none text-gray-500" dangerouslySetInnerHTML={{ __html: toText(textPreview) }}>
                             </div>
                         </div>
                         <div className="text-base font-medium leading-6">
