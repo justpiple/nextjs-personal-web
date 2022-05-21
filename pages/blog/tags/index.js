@@ -17,9 +17,9 @@ function BlogHome({ data }) {
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />
-                    <div className="font-inter mx-auto max-w-3xl pt-5 px-6 sm:px-6 xl:max-w-5xl xl:px-0">
+                    <div className="font-inter mx-auto max-w-3xl pt-5 px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                         {Object.entries(data).map((d, i) => {
-                            return <ActiveLink key={i} href={`/blog/tags/${d[0]}`} className="text-gray-500 ml-3 bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">{d[0]} ({d[1]})</ActiveLink>
+                            return <ActiveLink key={i} href={`/blog/tags/${d[0]}`} className="overflow-hidden text-gray-500 my-3 mx-3 bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">{d[0]} ({d[1]})</ActiveLink>
                         })}
                     </div>
                     <Footer />
