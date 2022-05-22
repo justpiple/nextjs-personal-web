@@ -1785,11 +1785,15 @@ html.unreset {
 }
 
 .ck-content a:any-link {
-  color: blue;
+  color: #28bdaf;
   text-decoration: underline;
-  cursor: auto;
+  cursor: pointer;
+}
+.ck-content a:any-link:hover {
+  color: #169689;
+  text-decoration: underline;
 }
 
 .ck-content a:any-link:active {
-  color: red;
+  color: #1b9eb9c3;
 }
