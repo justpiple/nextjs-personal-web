@@ -1791,7 +1791,6 @@ html.unreset {
 }
 .ck-content a:any-link:hover {
   color: #169689;
-  text-decoration: underline;
 }
 
 .ck-content a:any-link:active {
