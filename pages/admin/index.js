@@ -31,12 +31,6 @@ function BlogAdmin({ user }) {
                                     </a>
                                 </li>
                                 <li className="p-1">
-                                    <a href="/admin/editor/new"
-                                        className="duration-300 text-blue-500 hover:text-cyan-400">
-                                        Create new post
-                                    </a>
-                                </li>
-                                <li className="p-1">
                                     <a href="/admin/short-link"
                                         className="duration-300 text-blue-500 hover:text-cyan-400">
                                         Short Link

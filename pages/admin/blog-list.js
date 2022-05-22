@@ -9,62 +9,8 @@ import clientPromise from "../../lib/mongodb";
 import { withSessionSsr } from "../../lib/getSession";
 import { timeConverter } from "../../lib/function";
 
-
-function PreviewBlog({ pubDate, labels, title, link, textPreview, id }) {
-    async function deletePost() {
-        const isYes = confirm("Are you sure to delete this post?")
-        if (!isYes) return
-        const delPost = await fetch('/api/deletePost', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id }),
-        }).then(x => x.json());
-        if (delPost.status == 200) {
-            alert(delPost.message)
-            Router.reload(window.location.pathname)
-        } else alert(`Failed to delete post\n\nerror: ${delPost.error}`)
-    }
-    return (
-        <li className="py-12">
-            <article>
-                <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <dl>
-                        <dt className="sr-only">Published on</dt>
-                        <dd className="text-base font-medium leading-6 text-gray-500">
-                            <time>{timeConverter(pubDate)}</time>
-                        </dd>
-                    </dl>
-                    <div className="space-y-5 xl:col-span-3">
-                        <div className="space-y-6">
-                            <div>
-                                <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                                    <ActiveLink className="text-gray-900 duration-300 hover:text-cyan-500" href={"/admin/editor/" + link}>
-                                        {title}
-                                    </ActiveLink>
-                                </h2>
-                                <div className="flex flex-wrap">
-                                    {labels ? labels.map(label => {
-                                        return <ActiveLink className="text-teal-500 mr-3 text-sm font-medium uppercase duration-300 hover:text-cyan-600" key={label} href={"/blog/tags/" + label}>{label}</ActiveLink>
-                                    }) : null}
-                                </div>
-                            </div>
-                            <div className="text-ellipsis max-w-none text-gray-500" dangerouslySetInnerHTML={{ __html: textPreview }}>
-                            </div>
-                        </div>
-                        <div className="text-base font-medium leading-6">
-                            <span className="duration-300 hover:text-red-600 cursor-pointer" onClick={deletePost}>
-                                Delete post →
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </li>
-    )
-}
-
 function BlogAdmin({ data }) {
-    async function deletePost() {
+    async function deletePost(id) {
         const isYes = confirm("Are you sure to delete this post?")
         if (!isYes) return
         const delPost = await fetch('/api/deletePost', {
@@ -87,9 +33,9 @@ function BlogAdmin({ data }) {
                         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                                 <div className="overflow-hidden">
-                                    <button onClick={(e) => showModal({})} className="duration-300 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-                                        Create new link +
-                                    </button>
+                                    <a href="/admin/editor/new" className="duration-300 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                                        Create new post +
+                                    </a>
                                     <table className="min-w-full">
                                         <thead className="shadow-xl border-2 border-gray-300">
                                             <tr>
@@ -127,7 +73,7 @@ function BlogAdmin({ data }) {
                                                         <a href={"/admin/editor/" + blog.link} className="mr-2 duration-300 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
                                                             Edit
                                                         </a>
-                                                        <button onClick={deletePost} className="duration-300 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                                                        <button onClick={() => deletePost(blog._id)} className="duration-300 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
                                                             Remove
                                                         </button>
                                                     </td>
