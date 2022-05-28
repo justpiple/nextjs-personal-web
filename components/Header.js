@@ -11,43 +11,14 @@ function Header({ title, description }) {
             <meta name="theme-color" content="#8fd1c6" />
             <meta name="msapplication-TileColor" content="#8fd1c6" />
             <meta name="msapplication-TileImage" content="/icon/ms-icon-144x144.png" />
-            <meta name="description" content={description || "haiii, halooo"} />
+            <meta name="description" content={description || "hellow i'm ben."} />
             <meta name="keywords"
                 content="ben, kusindra, kusindra aji rabbany, benirabbany, beni, kusindra, aji, rabbany, aji rabbany" />
-            <meta name="robots" content="index, nofollow" />
-            <meta name="og:description" content={description || "haiii, halooo"} />
+            <meta name="robots" content="index, follow" />
+            <meta name="og:description" content={description || "hellow i'm ben."} />
             <meta property="og:image" content="https://itsben.space/assets/images/BG!.jpeg" />
             <meta property="og:site_name" content="itsben.space - personal website" />
             <meta property="og:title" content={title || "benirabbany"} />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BlogPosting",
-                        "mainEntityOfPage": {
-                            "@type": "WebPage",
-                            "@id": "https://itsben.space/"
-                        },
-                        "headline": "",
-                        "image": "",
-                        "author": {
-                            "@type": "Person",
-                            "name": "Ben",
-                            "url": "https://instagram.com/kusindr_"
-                        },
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "Ben",
-                            "logo": {
-                                "@type": "ImageObject",
-                                "url": "https://itsben.space/icon/apple-icon-144x144.png"
-                            }
-                        },
-                        "datePublished": ""
-                    })
-                }}
-            />
             <title>{title || "benirabbany"}</title>
             <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png" />
             <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png" />

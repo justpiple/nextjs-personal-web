@@ -8,6 +8,7 @@ import Certificate from "../components/home/Certificate";
 import School from "../components/home/School";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { SocialProfileJsonLd, NextSeo } from 'next-seo';
 
 function Home() {
   useEffect(() => {
@@ -19,6 +20,18 @@ function Home() {
   return (
     <React.Fragment>
       <Headers />
+      <NextSeo
+        title="benirabbany"
+        description="hellow i'm ben."
+      />
+      <SocialProfileJsonLd
+        type="Person"
+        name="Kusindra Aji Rabbany"
+        url="https://itsben.space"
+        sameAs={[
+          'http://instagram.com/kusindr_',
+        ]}
+      />
       <Navbar />
       <AboutMe />
       <Skill />

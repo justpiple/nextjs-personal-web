@@ -3,23 +3,33 @@ import Headers from "../../components/Header";
 import Footer from "../../components/blog/Footer";
 import Navbar from "../../components/blog/NavBar";
 import ActiveLink from "../../components/ActiveLink";
-import { useRouter } from 'next/router';
 import clientPromise from "../../lib/mongodb";
 import ck from "../../styles/unreset.module.css";
 import { timeConverter } from "../../lib/function"
 import Script from "next/script";
+import { ArticleJsonLd } from 'next-seo';
 
 function copyLink(e) {
     navigator.clipboard.writeText(e.target.value).then(() => alert("Link copied!"))
 }
 
-function BlogPost({ data, latestPost }) {
-    const router = useRouter()
-    const { slug } = router.query
-
+function BlogPost({ data, latestPost, url }) {
     return (
         <React.Fragment>
             <Headers title={data.title + " - itsben.space"} description="masben blog" />
+            <ArticleJsonLd
+                url={url}
+                title={data.title}
+                images={[
+                    'https://itsben.space/assets/images/BG!.jpeg',
+                ]}
+                datePublished={new Date(data.pubDate).toISOString()}
+                dateModified={new Date(data.pubDate).toISOString()}
+                authorName={['ben']}
+                publisherName="ben"
+                publisherLogo="https://itsben.space/assets/img/ppimg.jpeg"
+                description={data.description || "this is a post on my blog"}
+            />
             <div className="mx-auto max-w-4xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />
@@ -99,7 +109,8 @@ export async function getServerSideProps({ res, query }) {
     return {
         props: {
             data: findPost + 1 ? JSON.parse(JSON.stringify(getDB.splice(findPost, 1)[0])) : {},
-            latestPost: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate)))
+            latestPost: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate))).slice(0, 3),
+            url: `https://itsben.space/blog/${slug}`
         }
     }
 }
