@@ -44,6 +44,7 @@ function BlogPost({ data, latestPost, url }) {
                                         <span className="text-gray-500">Posted by <a className="transition-color duration-300 hover:text-cyan-300" href="https://instagram.com/kusindr_" target="_blank" rel="noopener noreferrer">ben</a></span>
                                         <span className="px-2">|</span>
                                         <span className="text-gray-500">{timeConverter(data.pubDate)}</span>
+                                        <p className="text-gray-500">{data.clickCount} Clicks</p>
                                     </dl>
                                 </header>
                                 <article className={ck["ck-content"] + " font-inter"} dangerouslySetInnerHTML={{ __html: data.post }}>
