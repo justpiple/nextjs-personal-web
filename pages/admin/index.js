@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Headers from "../../components/Header";
 import Footer from "../../components/blog/Footer";
-import Navbar from "../../components/blog/NavBar";
+import Navbar from "../../components/NavAdmin";
 import { useRouter } from 'next/router';
 import { withSessionSsr } from "../../lib/getSession";
 import AcLink from "../../components/ActiveLink";

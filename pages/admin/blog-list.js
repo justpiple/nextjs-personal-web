@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Headers from "../../components/Header";
 import Router from 'next/router';
 import Footer from "../../components/blog/Footer";
-import Navbar from "../../components/blog/NavBar";
+import Navbar from "../../components/NavAdmin";
 import { useRouter } from 'next/router';
 import ActiveLink from "../../components/ActiveLink";
 import clientPromise from "../../lib/mongodb";
