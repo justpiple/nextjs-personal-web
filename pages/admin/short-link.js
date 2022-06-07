@@ -30,9 +30,12 @@ function BlogAdmin({ links }) {
                         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                                 <div className="overflow-hidden">
-                                    <button onClick={(e) => showModal({})} className="duration-300 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                                    <button onClick={(e) => showModal({})} className="duration-300 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded mb-2" type="button">
                                         Create new link +
-                                    </button>
+                                    </button>&nbsp;
+                                    <AcLink href={router.query.isBot ? "/admin/short-link" : "?isBot=1"} className="duration-300 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                                        {router.query.isBot ? "All Link" : "Bot Link"}
+                                    </AcLink>
                                     <table className="min-w-full">
                                         <thead className="shadow-xl border-2 border-gray-300">
                                             <tr>
@@ -54,29 +57,30 @@ function BlogAdmin({ links }) {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {links.map((link, i) => {
-                                                return <tr key={i} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                                    <td className="p-2 whitespace-nowrap text-sm font-medium text-gray-900">{i + 1}</td>
-                                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap max-w-[210px] overflow-clip">
-                                                        <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>{link.url}</a>
-                                                    </td>
-                                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap max-w-[240px] overflow-clip">
-                                                        <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>https://l.itsben.space/{link.id}</a>
-                                                        <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>https://itsben.space/link/{link.id}</a>
-                                                    </td>
-                                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                        {link.clickCount}
-                                                    </td>
-                                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                        <button onClick={(e) => showModal(link)} className="mr-2 duration-300 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-                                                            Edit
-                                                        </button>
-                                                        <button onClick={(e) => deleteLink(link.id)} className="duration-300 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-                                                            Remove
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            })}
+                                            {(router.query.isBot ? links.filter(x => x.isBot) : links.filter(x => !x.isBot))
+                                                .map((link, i) => {
+                                                    return <tr key={i} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                                        <td className="p-2 whitespace-nowrap text-sm font-medium text-gray-900">{i + 1}</td>
+                                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap max-w-[210px] overflow-clip">
+                                                            <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>{link.url}</a>
+                                                        </td>
+                                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap max-w-[240px] overflow-clip">
+                                                            <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>https://l.itsben.space/{link.id}</a>
+                                                            <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>https://itsben.space/link/{link.id}</a>
+                                                        </td>
+                                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                            {link.clickCount}
+                                                        </td>
+                                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                            <button onClick={(e) => showModal(link)} className="mr-2 duration-300 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                                                                Edit
+                                                            </button>
+                                                            <button onClick={(e) => deleteLink(link.id)} className="duration-300 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                                                                Remove
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                })}
                                         </tbody>
                                     </table>
                                 </div>
