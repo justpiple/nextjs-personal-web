@@ -16,7 +16,7 @@ function copyLink(e) {
 function BlogPost({ data, latestPost, url }) {
     return (
         <React.Fragment>
-            <Headers title={data.title + " - itsben.space"} description="masben blog" />
+            <Headers title={data.title + " - itsben.space"} description="masben blog" shortlink={"https://l.itsben.space/" + data.short} />
             <ArticleJsonLd
                 url={url}
                 title={data.title}
@@ -107,9 +107,11 @@ export async function getServerSideProps({ res, query }) {
         }
     }
     else if (process.env.NODE_ENV === 'production') db.db('personal-blog').collection('blog-post').updateOne({ link: slug }, { $inc: { clickCount: 1 } })
+    var data = findPost + 1 ? JSON.parse(JSON.stringify(getDB.splice(findPost, 1)[0])) : {}
+    res.setHeader("Link", `<${"https://l.itsben.space/" + data.short}>; rel="shortlink"`);
     return {
         props: {
-            data: findPost + 1 ? JSON.parse(JSON.stringify(getDB.splice(findPost, 1)[0])) : {},
+            data,
             latestPost: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate))).slice(0, 3).map(x => ({ title: x.title, link: x.link })),
             url: `https://itsben.space/blog/${slug}`
         }

@@ -1,7 +1,7 @@
 import React from "react";
 import Head from 'next/head';
 
-function Header({ title, description }) {
+function Header({ title, description, shortlink }) {
     return (
         <Head>
             <meta charSet="UTF-8" />
@@ -32,7 +32,7 @@ function Header({ title, description }) {
             <link rel="icon" type="image/png" sizes="192x192" href="/icon/android-icon-192x192.png" />
             <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png" />
             <link rel="icon" type="image/png" sizes="96x96" href="/icon/favicon-96x96.png" />
-            <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png" />
+            {shortlink ? <link rel="shortlink" href={shortlink} /> : ""}
         </Head>
     );
 }
