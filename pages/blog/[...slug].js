@@ -67,11 +67,11 @@ function BlogPost({ data, latestPost, url }) {
                                     <div>
                                         <h3 className="font-bold py-4">Latest Post</h3>
                                         <ul className="space-y-2 list-disc">
-                                            {latestPost ? latestPost.map(post => {
-                                                return <li key={post._id}>
+                                            {latestPost.map((post, i) => {
+                                                return <li key={i}>
                                                     <ActiveLink href={`/blog/${post.link}`} className="hover:text-blue-400 transition-colors duration-300">{post.title}</ActiveLink >
                                                 </li>
-                                            }) : null}
+                                            })}
                                         </ul>
                                     </div>
                                 </div>
@@ -106,11 +106,11 @@ export async function getServerSideProps({ res, query }) {
             }
         }
     }
-    else await db.db('personal-blog').collection('blog-post').updateOne({ link: slug }, { $inc: { clickCount: 1 } })
+    else if (process.env.NODE_ENV === 'production') db.db('personal-blog').collection('blog-post').updateOne({ link: slug }, { $inc: { clickCount: 1 } })
     return {
         props: {
             data: findPost + 1 ? JSON.parse(JSON.stringify(getDB.splice(findPost, 1)[0])) : {},
-            latestPost: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate))).slice(0, 3),
+            latestPost: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate))).slice(0, 3).map(x => ({ title: x.title, link: x.link })),
             url: `https://itsben.space/blog/${slug}`
         }
     }
