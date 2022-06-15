@@ -6,20 +6,19 @@ import { useRouter } from 'next/router';
 import { withSessionSsr } from "../../lib/getSession";
 import AcLink from "../../components/ActiveLink";
 import clientPromise from "../../lib/mongodb";
+
 function copyLink(e) {
     return navigator.clipboard.writeText(e.target.innerText).then(() => alert("Link copied!"))
 }
-function closeModal() {
-    return document.getElementById('modal').classList.add("hidden")
-}
-function showModal(data) {
-    document.getElementById("oldId").value = data.id || ""
-    document.getElementsByName("url")[0].value = data.url || ""
-    document.getElementsByName("newId")[0].value = data.id || ""
-    document.getElementById('modal').classList.remove("hidden")
-}
 function BlogAdmin({ links }) {
     const router = useRouter()
+    const [modalState, toggleModal] = useState(false);
+    function showModal(data) {
+        document.getElementById("oldId").value = data.id || ""
+        document.getElementsByName("url")[0].value = data.url || ""
+        document.getElementsByName("newId")[0].value = data.id || ""
+        toggleModal(true)
+    }
     return (
         <React.Fragment>
             <Headers title="Link shortner - itsben.space" />
@@ -59,7 +58,7 @@ function BlogAdmin({ links }) {
                                         <tbody>
                                             {(router.query.isBot ? links.filter(x => x.isBot) : links.filter(x => !x.isBot))
                                                 .map((link, i) => {
-                                                    return <tr key={i} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                                    return <tr key={i} className="bg-white border-b transition duration-50 ease-in-out hover:bg-gray-100">
                                                         <td className="p-2 whitespace-nowrap text-sm font-medium text-gray-900">{i + 1}</td>
                                                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap max-w-[210px] overflow-clip">
                                                             <a className="mb-2 block duration-300 hover:text-teal-400 cursor-pointer" onClick={copyLink}>{link.url}</a>
@@ -90,14 +89,14 @@ function BlogAdmin({ links }) {
                     <Footer />
                 </div>
             </div>
-            <div id="modal" tabIndex="-1" className="hidden duration-300 transition-all overflow-y-auto overflow-x-hidden m-auto fixed top-0 right-0 left-0 z-50 w-full md:inset-0 md:h-full">
-                <div className="relative p-4 w-full max-w-2xl h-full md:h-auto m-auto">
+            <div id="modal" tabIndex="-1" className={`${modalState ? "top-0" : "top-[-100%]"} duration-300 transition-all overflow-y-auto ease-out overflow-x-hidden m-auto fixed right-0 left-0 z-50 w-full`}>
+                <div className="relative p-4 w-full max-w-2xl h-full m-auto">
                     <div className="relative rounded-lg shadow bg-gray-700">
                         <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
                             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                                 Edit Link
                             </h3>
-                            <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={closeModal}>
+                            <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={() => toggleModal(false)}>
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                             </button>
                         </div>

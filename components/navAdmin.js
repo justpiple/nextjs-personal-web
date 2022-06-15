@@ -8,9 +8,9 @@ function NavBar() {
             <div id="mobileMenu" className={"sidenavFull opacity-95 " + (navShow ? " sideActive" : "")}>
                 <div data-aos="text-center">
                     <nav className="fixed mt-8 h-full text-white">
-                        <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/blog">Home</AcLink></div>
-                        <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/blog/tags">Tags</AcLink></div>
-                        <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/">About</AcLink></div>
+                        <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/admin">Admin Home</AcLink></div>
+                        <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/api/logout">Logout</AcLink></div>
+                        <div className="px-12 py-4"><AcLink className="text-xl font-bold tracking-widest hover:text-gray-200" href="/">Main Page</AcLink></div>
                     </nav>
                 </div>
             </div>
@@ -41,7 +41,7 @@ function NavBar() {
                             </AcLink>
                             <AcLink href="/"
                                 className="p-1 font-medium text-gray-900 sm:p-4 duration-300 hover:text-cyan-600">
-                                Main page
+                                Main Page
                             </AcLink>
                         </div>
                     </div>
