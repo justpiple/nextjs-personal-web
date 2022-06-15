@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Headers from "../../../components/Header";
-import Navbar from "../../../components/NavAdmin";
+import Navbar from "../../../components/navAdmin";
 import Script from 'next/script';
 import clientPromise from "../../../lib/mongodb";
 import { withSessionSsr } from "../../../lib/getSession";
