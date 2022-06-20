@@ -18,7 +18,7 @@ class School extends React.Component {
                         <img src="/assets/img/sdbss.PNG" className="zoom w-full rounded-lg object-center" alt="School" />
                         <div className="px-2 py-2 text-center">
                             <p className="font-bold text-xl mb-2 text-gray-700">SD Brawijaya Smart School</p>
-                            <p className="text-gray-700 text-base">Saya telah menyelesaikan Sekolah Dasar pada tahun 2019.
+                            <p className="text-gray-700 text-base">Saya telah menyelesaikan pendidikan Sekolah Dasar pada tahun 2019.
                             </p>
                         </div>
                         <div className="px-2 py-4 text-center">
@@ -30,8 +30,8 @@ class School extends React.Component {
                         <img src="/assets/img/smp-bss.jpg" className="zoom w-full rounded-lg" alt="School" />
                         <div className="px-2 py-2 text-center">
                             <p className="font-bold text-xl mb-2 text-gray-700">SMP Brawijaya Smart School</p>
-                            <p className="text-gray-700 text-base">Saat ini saya sedang menempuh pendidikan Sekolah Menengah
-                                Pertama di SMP Brawijaya Smart School kelas IX.</p>
+                            <p className="text-gray-700 text-base">Saya telah menyelesaikan pendidikan Sekolah Menengah
+                                Pertama di SMP Brawijaya Smart School pada tahun 2022.</p>
                         </div>
                         <div className="px-2 py-4 text-center">
                             <a target="_blank" rel="noreferrer" href="https://smpbss.sch.id"
@@ -39,10 +39,11 @@ class School extends React.Component {
                         </div>
                     </div>
                     <div className="bg-white px-4 py-4 m-2 shadow-lg rounded">
-                        <img src="/assets/img/smk-telkom.PNG" className="zoom w-full rounded-lg" alt="School" />
+                        <img src="/assets/img/smk-telkom.png" className="zoom w-full rounded-lg" alt="School" />
                         <div className="px-2 py-2 text-center">
                             <p className="font-bold text-xl mb-2 text-gray-700">SMK Telkom Malang</p>
-                            <p className="text-gray-700 text-base">Calon Mokleters angkatan 31.</p>
+                            <p className="text-gray-700 text-base">Calon Mokleters angkatan 31 Jurusan Rekayasa Perangkat Lunak.</p>
+                            {/* <p className="text-gray-700 text-base">Saya adalah Mokleters angkatan 31 yang sekarang duduk di kelas XI jurusan Rekayasa Perangkat Lunak.</p> */}
                         </div>
                         <div className="px-2 py-4 text-center">
                             <a target="_blank" rel="noreferrer" href="https://www.smktelkom-mlg.sch.id"
