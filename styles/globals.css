@@ -62,7 +62,7 @@
   right: -100%;
   overflow-x: hidden;
   transition: 0.6s;
-  padding-top: 120px;
+  padding-top: 100px;
 }
 @media (max-width: 768px) {
   .navbr {

@@ -28,9 +28,9 @@ function NavBar() {
                     </a>
                 </div>
             </div>
-            <section style={{ zIndex: 999 }} className="bg-white sticky top-0 z-50 w-screen mx-auto px-4">
-                <nav className="flex flex-wrap p-6 justify-between">
-                    <div className="h-10 w-100 mr-5">
+            <section style={{ zIndex: 999 }} className="bg-white sticky top-0 z-50 w-screen mx-auto px-4 h-16">
+                <nav className="flex flex-wrap p-3 justify-between ">
+                    <div className="h-10 mr-5">
                         <a className="text-2xl no-underline font-sans font-bold" href="#">ben</a>
                     </div>
                     <div onClick={() => toggleNav(!navShow)} className="block md:hidden" style={{ cursor: "pointer" }}>
@@ -46,27 +46,27 @@ function NavBar() {
                         <div className="text-sm md:flex-grow"></div>
                         <div data-aos="fade-down">
                             <a href="#"
-                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 text-lg mr-4">
+                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
                                 About Me
                             </a>
                             <a href="#skill"
-                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 text-lg mr-4">
+                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
                                 Skill
                             </a>
                             <a href="#cr"
-                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 text-lg mr-4">
+                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
                                 Certificate
                             </a>
                             <a href="#school"
-                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 text-lg mr-4">
+                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
                                 School
                             </a>
                             <AcLink href="/blog"
-                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 text-lg mr-4">
+                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
                                 Blog
                             </AcLink>
                             <a href="https://my.itsben.space" target="_blank" rel="noopener noreferrer"
-                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 text-lg mr-4">
+                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
                                 Contact
                             </a>
                         </div>
