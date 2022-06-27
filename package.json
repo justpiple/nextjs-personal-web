@@ -21,6 +21,7 @@
     "next": "12.1.4",
     "next-pwa": "^5.5.2",
     "next-seo": "^5.4.0",
+    "nextjs-google-analytics": "^1.2.1",
     "nextjs-progressbar": "^0.0.14",
     "react": "18.0.0",
     "react-dom": "18.0.0",
