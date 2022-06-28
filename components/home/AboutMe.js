@@ -44,7 +44,8 @@ class AboutMe extends React.Component {
                         Halo, saya <a id="nama"></a>.
                     </span>
                     <h3 data-aos="zoom-out-up" className="text-lg mb-2 font-josefinSans">
-                        Saya adalah seorang pelajar kelas X di SMK Telkom Malang.
+                        Saya adalah seorang pelajar kelas X di SMK Telkom Malang,
+                        saya belajar tentang pemrograman untuk mengisi waktu luang.
                     </h3>
                     <br />
                     <h2 data-aos="zoom-out-down" className="font-bold">Spotify Status</h2>
