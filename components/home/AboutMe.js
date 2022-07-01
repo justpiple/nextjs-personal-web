@@ -36,7 +36,7 @@ class AboutMe extends React.Component {
                 <div className="px-16 py-8 text-center text-white">
                     <div className="w-full">
                         <div data-aos="flip-up" className="px-4 py-4">
-                            <img src="/assets/img/ppimg.jpeg" alt="Hero picture"
+                            <img src="https://avatars.githubusercontent.com/u/83589651" alt="Hero picture"
                                 className="hero shadow-lg rounded-full max-w-full mx-auto text-center w-48" />
                         </div>
                     </div>
