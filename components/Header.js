@@ -6,7 +6,7 @@ function Header({ title, description, shortlink }) {
         <Head>
             <meta charSet="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scaleable=no" />
-            <meta name="description" content="web portofolio" />
+            <meta name="description" content="ben personal web" />
             <meta name="author" content="ben" />
             <meta name="theme-color" content="#8fd1c6" />
             <meta name="msapplication-TileColor" content="#8fd1c6" />
@@ -16,7 +16,7 @@ function Header({ title, description, shortlink }) {
                 content="ben, kusindra, kusindra aji rabbany, benirabbany, beni, kusindra, aji, rabbany, aji rabbany" />
             <meta name="robots" content="index, follow" />
             <meta name="og:description" content={description || "hellow i'm ben."} />
-            <meta property="og:image" content="https://itsben.space/assets/images/BG!.jpeg" />
+            <meta property="og:image" content="https://avatars.githubusercontent.com/u/83589651" />
             <meta property="og:site_name" content="itsben.space - personal website" />
             <meta property="og:title" content={title || "benirabbany"} />
             <title>{title || "benirabbany"}</title>
