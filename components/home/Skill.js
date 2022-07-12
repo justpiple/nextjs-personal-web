@@ -10,7 +10,7 @@ class Skill extends React.Component {
                         <div className="mb-4">
                             <div className="h-1 mx-auto bg-pink-500 w-1/4 opacity-75 my-0 py-0 rounded"></div>
                         </div>
-                        <p className="text-lg m-4 text-gray-600">I&#39;m just a beginner</p>
+                        <p className="text-lg m-4 text-gray-600">Just beginners</p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3">
                         <div data-aos="fade-right" data-aos-duration="2500"
