@@ -136,8 +136,8 @@ function BlogAdmin({ links }) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataForm),
         }).then(x => x.json());
-        router.push(window.location.href)
         document.getElementById('modal').classList.add("hidden")
+        router.push(window.location.href)
     }
     async function deleteLink(id) {
         const isYes = confirm("Are you sure delete this link?")
@@ -147,8 +147,8 @@ function BlogAdmin({ links }) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id }),
         }).then(x => x.json());
-        router.push(window.location.href)
         document.getElementById('modal').classList.add("hidden")
+        router.push(window.location.href)
     }
 }
 export const getServerSideProps = withSessionSsr(
