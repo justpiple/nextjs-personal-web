@@ -136,7 +136,7 @@ function BlogAdmin({ links }) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataForm),
         }).then(x => x.json());
-        document.getElementById('modal').classList.add("hidden")
+        toggleModal(false)
         router.push(window.location.href)
     }
     async function deleteLink(id) {
@@ -147,7 +147,7 @@ function BlogAdmin({ links }) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id }),
         }).then(x => x.json());
-        document.getElementById('modal').classList.add("hidden")
+        toggleModal(false)
         router.push(window.location.href)
     }
 }
