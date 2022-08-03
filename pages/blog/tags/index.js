@@ -33,7 +33,7 @@ export async function getServerSideProps({ res, query }) {
     var getDB = await db.db('personal-blog').collection('blog-post').find({}).toArray()
     var counts = {}
     var conc = []
-    var tagList = getDB.map(x => x.labels)
+    var tagList = getDB.filter(x => !x.link.includes('private')).map(x => x.labels)
     for (var i of tagList) {
         conc = conc.concat(i)
     }
