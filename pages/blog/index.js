@@ -92,7 +92,7 @@ export async function getServerSideProps({ res, query }) {
     var getDB = await db.db('personal-blog').collection('blog-post').find({}).toArray()
     return {
         props: {
-            datas: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate)))
+            datas: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate))).filter(x => !x.link.includes('private'))
         }
     }
 }
