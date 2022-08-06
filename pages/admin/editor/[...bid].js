@@ -4,6 +4,7 @@ import Navbar from "../../../components/navAdmin";
 import Script from 'next/script';
 import clientPromise from "../../../lib/mongodb";
 import { withSessionSsr } from "../../../lib/getSession";
+import { data } from "autoprefixer";
 
 
 export default class BlogEdit extends React.Component {
@@ -49,6 +50,7 @@ export default class BlogEdit extends React.Component {
         if (this.state.data.labels.includes(this.state.iLabel)) return false
         this.state.data.labels.push(this.state.iLabel)
         this.setState({
+            ...this.state,
             labels: (
                 this.state.data.labels.length ? this.state.data.labels.map((label, i) => {
                     return <li key={i} className="cursor-pointer mb-2" onClick={this.removeLabel.bind(this)}>{label}</li>
@@ -60,6 +62,7 @@ export default class BlogEdit extends React.Component {
     removeLabel(e) {
         this.state.data.labels.splice(this.state.data.labels.indexOf(e.target.innerHTML), 1)
         this.setState({
+            ...this.state,
             labels: (
                 this.state.data.labels.length ? this.state.data.labels.map((label, i) => {
                     return <li key={i} className="cursor-pointer mb-2" onClick={this.removeLabel}>{label}</li>
@@ -71,6 +74,7 @@ export default class BlogEdit extends React.Component {
     handleInputChange(event) {
         const target = event.target;
         this.setState({
+            ...this.state,
             [target.name]: target.value
         });
     }
