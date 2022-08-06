@@ -42,8 +42,7 @@ class School extends React.Component {
                         <img src="/assets/img/smk-telkom.png" className="zoom w-full rounded-lg" alt="School" />
                         <div className="px-2 py-2 text-center">
                             <p className="font-bold text-xl mb-2 text-gray-700">SMK Telkom Malang</p>
-                            <p className="text-gray-700 text-base">Calon Mokleters angkatan 31 Jurusan Rekayasa Perangkat Lunak.</p>
-                            {/* <p className="text-gray-700 text-base">Saya adalah Mokleters angkatan 31 yang sekarang duduk di kelas XI jurusan Rekayasa Perangkat Lunak.</p> */}
+                            <p className="text-gray-700 text-base">Saya adalah Mokleters angkatan 31 yang sekarang duduk di kelas X jurusan Rekayasa Perangkat Lunak.</p>
                         </div>
                         <div className="px-2 py-4 text-center">
                             <a target="_blank" rel="noreferrer" href="https://www.smktelkom-mlg.sch.id"
