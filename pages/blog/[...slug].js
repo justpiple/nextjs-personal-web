@@ -112,7 +112,7 @@ export async function getServerSideProps({ res, query }) {
     return {
         props: {
             data,
-            latestPost: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate))).slice(0, 3).map(x => ({ title: x.title, link: x.link })).filter(x => !x.link.includes('private')).map(x => x.labels),
+            latestPost: JSON.parse(JSON.stringify(getDB.sort((a, b) => b.pubDate - a.pubDate))).slice(0, 3).map(x => ({ title: x.title, link: x.link })).filter(x => !x.link.includes('private')),
             url: `https://itsben.space/blog/${slug}`
         }
     }
