@@ -12,7 +12,7 @@ class Skill extends React.Component {
                         </div>
                         <p className="text-lg m-4 text-gray-600">Just beginners</p>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                         <div data-aos="fade-right" data-aos-duration="2500"
                             className="max-w-sm shadow-lg px-4 py-4 bg-white m-3 text-center">
                             <img src="/assets/img/html.svg" className="mx-auto max-w-full" alt="Logo" />
@@ -84,14 +84,14 @@ class Skill extends React.Component {
                         </div>
                         <div data-aos="zoom-out-up" data-aos-duration="2500"
                             className="max-w-sm shadow-lg px-4 py-4 bg-white m-3 text-center">
-                            <img src="/assets/img/arduino.svg" className="mx-auto max-w-full" alt="Logo" />
+                            <img src="/assets/img/Nextjs.svg" className="mx-auto max-w-full" alt="Logo" />
                             <div className="px-2 py-2 text-center">
-                                <p className="font-bold text-xl mb-2 text-gray-700">Arduino</p>
-                                <p className="text-gray-700 text-base">Arduino is an open-source single board microcontroller.
+                                <p className="font-bold text-xl mb-2 text-gray-700">Next.js</p>
+                                <p className="text-gray-700 text-base">Next.js The React Framework for Production. The Open-source web development framework enabling React-based web applications functionalities such as server-side rendering and generating static websites.
                                 </p>
                             </div>
                             <div className="px-2 py-4 text-center">
-                                <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Arduino"
+                                <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Next.js"
                                     className="bg-green-500 hover:bg-green-600 text-white font-bold px-4 py-2 shadow-md rounded-tr-lg rounded-bl-lg">Detail</a>
                             </div>
                         </div>
