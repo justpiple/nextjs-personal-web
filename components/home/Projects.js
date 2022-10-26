@@ -27,6 +27,32 @@ class Projects extends React.Component {
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 shadow-md rounded-tr-lg rounded-bl-lg">Info</a>
                         </div>
                     </div>
+                    <div className="bg-white px-4 py-4 m-2 shadow-lg rounded" >
+                        <img src="https://cdn.discordapp.com/attachments/740823592647786597/1019746257431973888/unknown.png" className="zoom w-full rounded-lg object-center" alt="Preview" />
+                        <div className="px-2 py-2 text-center">
+                            <p className="font-bold text-xl mb-2 text-gray-700">Web PILKETOS Moklet</p>
+                            <p className="text-gray-700 text-base">Sebuah website untuk melakukan Pemilihan Ketua OSIS SMK Telkom Malang
+                            </p>
+                        </div>
+                        <div className="px-2 py-4 text-center">
+
+                            <a target="_blank" rel="noreferrer" href="https://pilketos-moklet.itsben.space"
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 shadow-md rounded-tr-lg rounded-bl-lg">Info</a>
+                        </div>
+                    </div>
+                    <div className="bg-white px-4 py-4 m-2 shadow-lg rounded" >
+                        <img src="https://cdn.discordapp.com/attachments/740823592647786597/1019746257431973888/unknown.png" className="zoom w-full rounded-lg object-center" alt="Preview" />
+                        <div className="px-2 py-2 text-center">
+                            <p className="font-bold text-xl mb-2 text-gray-700">Web PILKETOS Moklet</p>
+                            <p className="text-gray-700 text-base">Sebuah website untuk melakukan Pemilihan Ketua OSIS SMK Telkom Malang
+                            </p>
+                        </div>
+                        <div className="px-2 py-4 text-center">
+
+                            <a target="_blank" rel="noreferrer" href="https://pilketos-moklet.itsben.space"
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 shadow-md rounded-tr-lg rounded-bl-lg">Info</a>
+                        </div>
+                    </div>
                 </div>
             </section >
         )
