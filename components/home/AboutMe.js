@@ -47,14 +47,14 @@ class AboutMe extends React.Component {
                         Saya adalah seorang pelajar kelas X di SMK Telkom Malang,
                         saya belajar tentang pemrograman untuk mengisi waktu luang.
                     </h3>
-                    <br />
-                    <h2 data-aos="zoom-out-down" className="font-bold">Spotify Status</h2>
+                    {/* <br /> */}
+                    {/* <h2 data-aos="zoom-out-down" className="font-bold">Spotify Status</h2>
                     <div data-aos="zoom-out-down">
                         <img id="spotifyStatus" src={this.state.spotifyStatus || "/assets/img/spotify-default.svg"} alt="Spotify Status"
                             onClick={() => window.open("https://volt.fm/benn")}
                             style={{ cursor: "pointer", backgroundImage: "linear-gradient( #7fbdb1, #40af93)" }}
                             className="shadow-lg hero mx-auto max-w-full" />
-                    </div>
+                    </div> */}
                 </div>
                 <img src="/assets/images/wave1.svg" alt="footerSvg" />
             </section>

@@ -11,7 +11,7 @@ class Skill extends React.Component {
                             <div className="h-1 mx-auto bg-pink-500 w-1/4 opacity-75 my-0 py-0 rounded"></div>
                         </div>
                         <p className="text-lg mt-4 text-gray-600">Just beginners</p>
-                        <p className="text-lg text-gray-600">See my project on <a target="_blank" rel="noreferrer" className="text-gray-500 duration-150 hover:text-gray-900" href="https://github.com/justpiple">github.com/justpiple</a></p>
+                        {/* <p className="text-lg text-gray-600">See my project on <a target="_blank" rel="noreferrer" className="text-gray-500 duration-150 hover:text-gray-900" href="https://github.com/justpiple">github.com/justpiple</a></p> */}
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                         <div data-aos="fade-right" data-aos-duration="2500"

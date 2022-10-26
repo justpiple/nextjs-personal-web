@@ -9,6 +9,7 @@ import School from "../components/home/School";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { SocialProfileJsonLd, NextSeo } from 'next-seo';
+import Projects from "../components/home/Projects";
 
 function Home() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function Home() {
       <AboutMe />
       <Skill />
       <Certificate />
+      <Projects />
       <School />
       <Footer />
     </React.Fragment>
