@@ -63,7 +63,7 @@ function BlogHome({ datas }) {
     useEffect(() => setData(datas), [])
     return (
         <React.Fragment>
-            <Headers title="itsben.space - Blog" />
+            <Headers title="Blog Home - itsben.space" />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <Navbar />
