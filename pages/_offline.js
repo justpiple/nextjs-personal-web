@@ -17,6 +17,6 @@ export default function page404() {
                     <Footer />
                 </div>
             </div>
-        </React.Fragment >
+        </React.Fragment>
     )
 }
