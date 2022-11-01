@@ -13,7 +13,7 @@ class Projects extends React.Component {
                         <p className="text-lg m-4 text-gray-600">Berikut adalah beberapa project saya : </p>
                     </div>
                 </div>
-                <div data-aos="fade-up" data-aos-duration="2500" className="grid grid-cols-1 lg:grid-cols-3 m-8">
+                {/* <div data-aos="fade-up" data-aos-duration="2500" className="grid grid-cols-1 lg:grid-cols-3 m-8">
                     <div className="bg-white px-4 py-4 m-2 shadow-lg rounded" >
                         <img src="https://cdn.discordapp.com/attachments/740823592647786597/1019746257431973888/unknown.png" className="zoom w-full rounded-lg object-center" alt="Preview" />
                         <div className="px-2 py-2 text-center">
@@ -52,8 +52,8 @@ class Projects extends React.Component {
                             <a target="_blank" rel="noreferrer" href="https://pilketos-moklet.itsben.space"
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 shadow-md rounded-tr-lg rounded-bl-lg">Info</a>
                         </div>
-                    </div>
-                </div>
+                    </div> */}
+                {/* </div> */}
             </section >
         )
     }
