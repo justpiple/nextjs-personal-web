@@ -17,6 +17,9 @@ function NavBar() {
                     <a href="#cr" className="text-white hover:text-gray-400 text-lg">
                         Certificate
                     </a>
+                    <a href="#projects" className="text-white hover:text-gray-400 text-lg">
+                        Projects
+                    </a>
                     <a href="#school" className="text-white hover:text-gray-400 text-lg">
                         School
                     </a>
@@ -56,6 +59,10 @@ function NavBar() {
                             <a href="#cr"
                                 className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
                                 Certificate
+                            </a>
+                            <a href="#projects"
+                                className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
+                                Projects
                             </a>
                             <a href="#school"
                                 className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
