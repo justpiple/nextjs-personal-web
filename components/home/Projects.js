@@ -3,7 +3,7 @@ import React from "react";
 class Projects extends React.Component {
     render() {
         return (
-            <section id="school" className="w-screen mx-auto py-8 bg-gray-50 font-josefinSans">
+            <section id="projects" className="w-screen mx-auto py-8 bg-gray-50 font-josefinSans">
                 <div className="container mx-auto pt-14">
                     <div data-aos="zoom-in" data-aos-duration="2500" className="text-center mb-8">
                         <h1 className="w-full my-2 text-5xl font-bold text-gray-700">Projects</h1>
