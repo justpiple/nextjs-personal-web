@@ -30,7 +30,7 @@ function Home() {
         name="Kusindra Aji Rabbany"
         url="https://itsben.space"
         sameAs={[
-          'http://instagram.com/kusindr_',
+          'https://instagram.com/kusindr_',
         ]}
       />
       <Navbar />

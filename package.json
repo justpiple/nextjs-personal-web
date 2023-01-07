@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-decoupled-document": "^33.0.0",
+    "@toast-ui/editor": "^3.2.1",
+    "@toast-ui/editor-plugin-code-syntax-highlight": "^3.1.0",
+    "@toast-ui/editor-plugin-color-syntax": "^3.1.0",
+    "@toast-ui/react-editor": "^3.2.2",
     "aos": "^3.0.0-beta.6",
     "axios": "^0.26.1",
     "cloudinary": "^1.29.0",
@@ -25,9 +28,12 @@
     "nextjs-progressbar": "^0.0.14",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "swiper": "^8.0.7"
+    "swiper": "^8.0.7",
+    "tui-color-picker": "^2.2.8",
+    "tui-editor-plugin-font-size": "^1.0.4"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.8",
     "autoprefixer": "^10.4.4",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4",

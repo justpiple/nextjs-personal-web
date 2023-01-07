@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { createRef } from "react";
 import Headers from "../../../components/Header";
 import Navbar from "../../../components/navAdmin";
-import Script from 'next/script';
 import clientPromise from "../../../lib/mongodb";
 import { withSessionSsr } from "../../../lib/getSession";
-import { data } from "autoprefixer";
+import dynamic from "next/dynamic"
+const NoSsrWysiwyg = dynamic(() => import('../../../components/WysiwygEditor'), { ssr: false })
 
 
 export default class BlogEdit extends React.Component {
@@ -23,6 +23,7 @@ export default class BlogEdit extends React.Component {
         this.addLabel = this.addLabel.bind(this)
         this.removeLabel = this.removeLabel.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.editorRef = createRef();
     }
     async saveChange(e) {
         e.preventDefault()
@@ -30,7 +31,7 @@ export default class BlogEdit extends React.Component {
             ...this.state.data,
             title: e.target.title.value,
             link: e.target.link.value,
-            post: Editor.getData(),
+            post: this.editorRef.current.editorInst.getMarkdown(),
             labels: this.state.data.labels,
             short: e.target.short.value
         }
@@ -153,41 +154,11 @@ export default class BlogEdit extends React.Component {
                                 Save
                             </button>
                         </form>
-                        <div className="document-editor">
-                            <div id="toolbar-container" className="document-editor__toolbar"></div>
-                            <div className="document-editor__editable-container">
-                                <div id="editor" className="document-editor__editable" ><article dangerouslySetInnerHTML={{ __html: this.state.data.post }}>
-                                </article> </div>
-                            </div>
+                        <div className="block py-10">
+                            <NoSsrWysiwyg editorRef={this.editorRef} initialValue={this.state.data.post} />
                         </div>
                     </div>
                 </div>
-                <Script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/decoupled-document/ckeditor.js" async />
-                <Script src="/js/uploadAdapter.js" async />
-                <Script id="CKEditor" async>{`
-                        function CustomAdapter( editor ) {
-                            editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
-                                return new MyUploadAdapter( loader );
-                            };
-                        }
-                        let Editor
-                        var edtr = setInterval(() =>{
-                            if (!window.DecoupledEditor) return
-                            DecoupledEditor
-                                .create(document.querySelector('#editor'), {
-                                    extraPlugins: [CustomAdapter]
-                                })
-                                .then(editor => {
-                                    const toolbarContainer = document.querySelector('#toolbar-container');
-                                    Editor = editor;
-                                    toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-                                })
-                                .catch(error => {
-                                    console.error(error);
-                                }) 
-                                clearInterval(edtr)
-                        }, 1000)
-                    `}</Script>
             </React.Fragment >
         )
     }

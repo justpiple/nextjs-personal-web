@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 /* Font */
-@import "./ckeditor.module.css";
 @layer base {
   body {
     font-family: Inter, sans-serif;

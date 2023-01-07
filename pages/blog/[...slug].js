@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Headers from "../../components/Header";
 import Footer from "../../components/blog/Footer";
 import Navbar from "../../components/blog/NavBar";
 import ActiveLink from "../../components/ActiveLink";
 import clientPromise from "../../lib/mongodb";
-import ck from "../../styles/unreset.module.css";
 import { timeConverter } from "../../lib/function"
 import Script from "next/script";
 import { ArticleJsonLd } from 'next-seo';
+import dynamic from "next/dynamic"
+const WysiwygViewer = dynamic(() => import('../../components/WysiwygViewer'), { ssr: false })
 
 function copyLink(e) {
     navigator.clipboard.writeText(e.target.value).then(() => alert("Link copied!"))
 }
 
 function BlogPost({ data, latestPost, url }) {
+    const viewerRef = React.useRef()
+    viewerRef?.current?.viewerInst?.setMarkdown(data.post)
     return (
         <React.Fragment>
             <Headers title={data.title + " - itsben.space"} description="masben blog" shortlink={"https://l.itsben.space/" + data.short} />
@@ -47,8 +50,11 @@ function BlogPost({ data, latestPost, url }) {
                                         <p className="text-gray-500">{data.clickCount} Clicks</p>
                                     </dl>
                                 </header>
-                                <article className={ck["ck-content"] + " font-inter"} dangerouslySetInnerHTML={{ __html: data.post }}>
-                                </article>
+                                {/* <article className="prose" dangerouslySetInnerHTML={{ __html: data.post }}>
+                                </article> */}
+                                <div className="md:min-h-screen">
+                                    <WysiwygViewer content={data} viewerRef={viewerRef} />
+                                </div>
                             </div>
                             <div className="md:w-2/5 w-full md:ml-10 mt-16">
                                 <div className="sticky top-6">
@@ -88,7 +94,7 @@ function BlogPost({ data, latestPost, url }) {
                                 iframely.load( element, element.attributes.url.value );
                             });
                         }, 2000)
-                    `}</Script>
+                        `}</Script>
         </React.Fragment >
     )
 }
