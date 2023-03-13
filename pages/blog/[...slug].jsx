@@ -52,7 +52,7 @@ function BlogPost({ data, latestPost, url }) {
                                 </header>
                                 {/* <article className="prose" dangerouslySetInnerHTML={{ __html: data.post }}>
                                 </article> */}
-                                <div className="md:min-h-screen">
+                                <div className="md:min-w-full">
                                     <WysiwygViewer content={data} viewerRef={viewerRef} />
                                 </div>
                             </div>
