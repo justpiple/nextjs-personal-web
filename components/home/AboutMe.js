@@ -5,31 +5,31 @@ import Typewriter from '../../lib/typewriter';
 class AboutMe extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            spotifyStatus: false
-        }
-        this.updateSpotify = this.updateSpotify.bind(this)
+        // this.state = {
+        //     spotifyStatus: false
+        // }
+        // this.updateSpotify = this.updateSpotify.bind(this)
     }
-    updateSpotify() {
-        fetch(`/api/spotify-status?t=${Date.now()}`).then(x => x.arrayBuffer()).then(x => {
-            this.setState({ spotifyStatus: `data:image/svg+xml;base64,${btoa(String.fromCharCode(...new Uint8Array(x)))}` })
-        }).catch(() => {
-            this.setState({ spotifyStatus: false })
-        })
-    }
+    // updateSpotify() {
+    //     fetch(`/api/spotify-status?t=${Date.now()}`).then(x => x.arrayBuffer()).then(x => {
+    //         this.setState({ spotifyStatus: `data:image/svg+xml;base64,${btoa(String.fromCharCode(...new Uint8Array(x)))}` })
+    //     }).catch(() => {
+    //         this.setState({ spotifyStatus: false })
+    //     })
+    // }
     componentDidMount() {
-        this.updateSpotify()
+        // this.updateSpotify()
         new Typewriter(document.getElementById("nama"), {
             strings: ['Ben', 'Beni'],
             autoStart: true,
             loop: true,
             delay: 300
         });
-        this.spotifyInt = setInterval(this.updateSpotify, 30000)
+        // this.spotifyInt = setInterval(this.updateSpotify, 30000)
     }
-    componentWillUnmount() {
-        clearInterval(this.spotifyInt)
-    }
+    // componentWillUnmount() {
+    //     clearInterval(this.spotifyInt)
+    // }
     render() {
         return (
             <section id="about" className="w-screen mx-auto gradient font-josefinSans">
