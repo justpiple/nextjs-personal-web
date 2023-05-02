@@ -4,7 +4,7 @@ import Typewriter from '../../lib/typewriter';
 
 class AboutMe extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         // this.state = {
         //     spotifyStatus: false
         // }

@@ -17,7 +17,7 @@ function Header({ title, description, shortlink }) {
             <meta name="robots" content="index, follow" />
             <meta name="og:description" content={description || "hellow i'm ben."} />
             <meta property="og:image" content="https://avatars.githubusercontent.com/u/83589651" />
-            <meta property="og:site_name" content="itsben.space - personal website" />
+            <meta property="og:site_name" content="benspace.xyz - personal website" />
             <meta property="og:title" content={title || "benirabbany"} />
             <title>{title || "benirabbany"}</title>
             <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png" />

@@ -26,7 +26,7 @@ function NavBar() {
                     <AcLink href="/blog" className="text-white hover:text-gray-400 text-lg">
                         Blog
                     </AcLink>
-                    <a href="https://my.itsben.space" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 text-lg">
+                    <a href="https://my.benspace.xyz" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 text-lg">
                         Contact
                     </a>
                 </div>
@@ -72,7 +72,7 @@ function NavBar() {
                                 className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
                                 Blog
                             </AcLink>
-                            <a href="https://my.itsben.space" target="_blank" rel="noopener noreferrer"
+                            <a href="https://my.benspace.xyz" target="_blank" rel="noopener noreferrer"
                                 className="block mt-4 md:inline-block md:mt-0 text-gray-600 hover:text-gray-900 mr-4">
                                 Contact
                             </a>

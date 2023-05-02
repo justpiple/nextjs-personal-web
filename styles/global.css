@@ -4,6 +4,15 @@
 
 /* Font */
 @layer base {
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+  html.lenis {
+    height: auto;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
   body {
     font-family: Inter, sans-serif;
     margin: 0;

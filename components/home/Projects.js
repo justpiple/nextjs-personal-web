@@ -43,7 +43,7 @@ class Projects extends React.Component {
                             <p className="text-gray-700 text-base">Link shortener yang saya gunakan untuk pribadi. Dibuat menggunakan Python dan MongoDB.</p>
                         </div>
                         <div className="px-2 py-4 text-center mt-auto">
-                            <a target="_blank" rel="noreferrer" href="https://l.itsben.space"
+                            <a target="_blank" rel="noreferrer" href="https://l.benspace.xyz"
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 shadow-md rounded-tr-lg rounded-bl-lg">Info</a>
                         </div>
                     </div>
