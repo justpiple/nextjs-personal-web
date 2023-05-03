@@ -13,7 +13,8 @@ export default function page404() {
           <div className="font-inter mx-auto max-w-3xl pt-5 px-6 sm:px-6 xl:max-w-5xl xl:px-0">
             <h2 className="text-2xl text-center">
               <b>oops... sepertinya anda sedang offline.</b>
-              <br /> Website ini memerlukan internet untuk dibuka.
+              <br />
+              Website ini memerlukan internet untuk dibuka.
             </h2>
           </div>
           <Footer />
