@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Navbar({ pathname }) {
   return (
     <nav
@@ -10,65 +12,69 @@ export default function Navbar({ pathname }) {
       </a>
       <ul className="flex text-secondary space-x-6 font-medium">
         <li>
-          <a
+          <Link
             href="/"
             className={"hover-underline" + (pathname == "/" ? " active" : "")}
           >
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="/about"
             className={
               "hover-underline" + (pathname == "/about" ? " active" : "")
             }
           >
             About
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="/skills"
             className={
               "hover-underline" + (pathname == "/skills" ? " active" : "")
             }
           >
             Skills
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="/certificate"
             className={
               "hover-underline" + (pathname == "/certificate" ? " active" : "")
             }
           >
             Certificate
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="/schools"
             className={
               "hover-underline" + (pathname == "/schools" ? " active" : "")
             }
           >
             Schools
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="/blog"
             className={
               "hover-underline" + (pathname == "/blog" ? " active" : "")
             }
           >
             Blog
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="https://my.benspace.xyz" className="hover-underline">
+          <a
+            href="https://my.benspace.xyz"
+            className="hover-underline"
+            target="_blank"
+          >
             Contacts
           </a>
         </li>

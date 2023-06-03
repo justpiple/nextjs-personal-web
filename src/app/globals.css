@@ -33,3 +33,64 @@ body {
     transform-origin: bottom left;
   }
 }
+
+.imgBorder {
+  --color: rgba(65, 162, 247, 0.747);
+  --border: 10px;
+  --offset: 20px;
+  --gap: 5px;
+  --_c: var(--color) var(--border), #0000 0 calc(100% - var(--border)),
+    var(--color) 0;
+  --_o: calc(3 * var(--offset));
+  padding: calc(var(--gap) + var(--border))
+    calc(var(--gap) + var(--border) + var(--offset))
+    calc(var(--gap) + var(--border) + var(--offset))
+    calc(var(--gap) + var(--border));
+  background: linear-gradient(var(--_c)) var(--_o) var(--_o),
+    linear-gradient(90deg, var(--_c)) var(--_o) var(--_o);
+  background-size: calc(100% - var(--_o)) calc(100% - var(--_o));
+  background-repeat: no-repeat;
+  filter: grayscale(0.5);
+  transition: 0.5s;
+  cursor: pointer;
+}
+.imgBorder:hover {
+  background-position: 0px 0px;
+  background-size: calc(100% - var(--offset)) calc(100% - var(--offset));
+  filter: grayscale(0.2);
+}
+
+.box {
+  --border-size: 3px;
+  --border-angle: 0turn;
+  background-image: conic-gradient(
+      from var(--border-angle),
+      #213,
+      #112 50%,
+      #213
+    ),
+    conic-gradient(
+      from var(--border-angle),
+      transparent 20%,
+      rgba(65, 162, 247, 0.747),
+      rgba(190, 226, 245, 0.8)
+    );
+  background-size: calc(100% - var(--border-size) * 2)
+      calc(100% - var(--border-size) * 2),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: bg-spin 3s ease-in infinite;
+  /* border-radius: 2px; */
+}
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}

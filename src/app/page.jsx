@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import { FaInstagram, FaWhatsapp, FaGithub } from "react-icons/fa";
 import { usePathname } from "next/navigation";
@@ -50,7 +49,8 @@ export default function Home() {
           <div className="group flex gap-4">
             <a
               href="https://l.benspace.xyz/gh"
-              className="text-whiteTheme hover:text-secondary"
+              className="text-whiteTheme hover:text-secondary transition-all"
+              target="_blank"
             >
               <FaGithub size="24px" />
             </a>
@@ -61,7 +61,8 @@ export default function Home() {
           <div className="group flex gap-4">
             <a
               href="https://l.benspace.xyz/contact-wa"
-              className="text-whiteTheme hover:text-secondary"
+              className="text-whiteTheme hover:text-secondary transition-all"
+              target="_blank"
             >
               <FaWhatsapp size="24px" />
             </a>
@@ -72,7 +73,8 @@ export default function Home() {
           <div className="group flex gap-4">
             <a
               href="https://l.benspace.xyz/contact-ig"
-              className="text-whiteTheme hover:text-secondary"
+              className="text-whiteTheme hover:text-secondary transition-all"
+              target="_blank"
             >
               <FaInstagram size="24px" />
             </a>
@@ -84,7 +86,7 @@ export default function Home() {
         <div className="flex flex-col items-center gap-3">
           <a
             href="mailto:work@benspace.xyz"
-            className="text-whiteTheme hover:text-secondary [writing-mode:vertical-lr] text-lg tracking-[.20em]"
+            className="text-whiteTheme hover:text-secondary [writing-mode:vertical-lr] text-lg tracking-[.20em] transition-all"
           >
             work@benspace.xyz
           </a>

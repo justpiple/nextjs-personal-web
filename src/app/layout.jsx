@@ -8,11 +8,6 @@ import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "benirabbany",
-  description: "Kusindra Aji Rabbany.",
-};
-
 export default function RootLayout({ children }) {
   useEffect(() => {
     AOS.init();
