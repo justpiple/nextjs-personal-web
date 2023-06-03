@@ -43,7 +43,7 @@ export default function About() {
             <div className="mt-16">
               <a
                 href="#"
-                className="py-4 px-6 bg-sky-500/80 rounded-sm text-whiteTheme font-semibold"
+                className="py-4 px-6 bg-sky-500/80 rounded-sm text-whiteTheme font-semibold hover:bg-sky-500/70 transition-all duration-200"
               >
                 Download CV
               </a>
