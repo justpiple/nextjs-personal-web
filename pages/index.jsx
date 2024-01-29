@@ -14,24 +14,6 @@ import Lenis from "@studio-freight/lenis";
 
 function Home() {
   useEffect(() => {
-    // const lenis = new Lenis({
-    //   duration: 1.2,
-    //   easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
-    //   orientation: "vertical",
-    //   gestureOrientation: "vertical",
-    //   smoothWheel: true,
-    //   smoothTouch: false,
-    //   touchMultiplier: 2,
-    // });
-
-    const lenis = new Lenis();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
     AOS.init({
       once: true,
       duration: 2500,
